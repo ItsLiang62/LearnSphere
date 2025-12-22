@@ -41,10 +41,10 @@ namespace LearnSphere.DAL
             public const string Description = "Description";
         }
 
-        public static class DigitalResource
+        public static class LearningResource
         {
-            public const string name = "DigitalResource";
-            public const string DigitalResourceID = "DigitalResourceID";
+            public const string name = "LearningResource";
+            public const string LearningResourceID = "LearningResourceID";
             public const string Title = "Title";
             public const string Author = "Author";
             public const string PublicationYear = "PublicationYear";

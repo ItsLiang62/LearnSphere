@@ -18,24 +18,24 @@ CREATE TABLE Educator (
 	EducatorID INT IDENTITY(1, 1) PRIMARY KEY,
 	Username NVARCHAR(50) UNIQUE NOT NULL,
 	Email NVARCHAR(50) UNIQUE NOT NULL,
-	Password NVARCHAR(50) NOT NULL
+	Password NVARCHAR(50) NOT NULL,
 )
 
 CREATE TABLE Domain (
 	DomainName NVARCHAR(50) PRIMARY KEY,
-	Description NVARCHAR(50)
+	Description NVARCHAR(50) NOT NULL
 )
 
-CREATE TABLE DigitalResource (
-	DigitalResourceID INT IDENTITY(1, 1) PRIMARY KEY,
+CREATE TABLE LearningResource (
+	LearningResourceID INT IDENTITY(1, 1) PRIMARY KEY,
 	Title NVARCHAR(50) UNIQUE NOT NULL,
-	Author NVARCHAR(50),
-	PublicationYear INT,
+	Author NVARCHAR(50) NOT NULL,
+	PublicationYear INT NOT NULL,
 	DomainName NVARCHAR(50) NOT NULL,
 	Category NVARCHAR(50) NOT NULL,
 	Locator NVARCHAR(500) NOT NULL,
 
-	CONSTRAINT FK_DomainName_DigitalResource FOREIGN KEY (DomainName) REFERENCES Domain(DomainName),
+	CONSTRAINT FK_DomainName_LearningResource FOREIGN KEY (DomainName) REFERENCES Domain(DomainName),
 	CONSTRAINT CHK_PublicationYear CHECK (PublicationYear IS NULL OR PublicationYear BETWEEN 1900 AND 2050),
 	CONSTRAINT CHK_Category CHECK (Category IN ('Book', 'Article', 'Lecture', 'Other'))
 )
