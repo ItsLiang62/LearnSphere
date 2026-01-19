@@ -1,3 +1,3 @@
 USE LearnSphereDB;
 
-DROP TABLE IF EXISTS Assessment, ExamPaper, EducatorPost, LearnerPost, Forum, LearningResource, Domain, Educator, Learner, Administrator
+DROP TABLE IF EXISTS Attempt, PaperTag, Paper, ForumTag, Post, Forum, LearningResources, Certification, EducatorApplication, Educator, Learner, Administrator, Account

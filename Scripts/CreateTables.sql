@@ -106,8 +106,7 @@ CREATE TABLE Post (
 	ON DELETE CASCADE,
 
 	CONSTRAINT FK_AccountID_Post 
-	FOREIGN KEY (AccountID) REFERENCES Account(ID)
-	ON DELETE CASCADE
+	FOREIGN KEY (AccountID) REFERENCES Account(ID) -- Delete account's posts before account in runtime
 )
 
 CREATE TABLE ForumTag (
@@ -130,6 +129,16 @@ CREATE TABLE Paper (
 	ON DELETE CASCADE
 )
 
+CREATE TABLE PaperTag (
+	ID INT IDENTITY(1, 1) PRIMARY KEY,
+	TagName NVARCHAR(50) NOT NULL,
+	PaperID INT NOT NULL,
+
+	CONSTRAINT FK_PaperID_PaperTag 
+	FOREIGN KEY (PaperID) REFERENCES Paper(ID)
+	ON DELETE CASCADE
+)
+
 CREATE TABLE Attempt (
 	AttemptID INT IDENTITY(1, 1) PRIMARY KEY,
 	PaperID INT NOT NULL,
@@ -137,13 +146,13 @@ CREATE TABLE Attempt (
 	Marks INT NOT NULL DEFAULT -1,
 
 	CONSTRAINT Unique_PaperID_LearnerID UNIQUE (PaperID, LearnerID),
+
 	CONSTRAINT FK_PaperID_Attempt
 	FOREIGN KEY (PaperID) REFERENCES Paper(ID)
 	ON DELETE CASCADE,
 
 	CONSTRAINT FK_LearnerID_Attempt 
-	FOREIGN KEY (LearnerID) REFERENCES Learner(ID)
-	ON DELETE CASCADE,
+	FOREIGN KEY (LearnerID) REFERENCES Learner(ID), -- Delete learner's attempts before learner in runtime
 
 	CONSTRAINT CHK_Marks CHECK (Marks BETWEEN -1 AND 100)
 )
