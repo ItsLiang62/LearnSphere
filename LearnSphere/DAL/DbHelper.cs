@@ -11,13 +11,11 @@ namespace LearnSphere.DAL
 {
     public class DbHelper
     {
-        private static string connStr = ConfigurationManager.ConnectionStrings["LearnSphereDB"].ConnectionString;
-        public const string ValuePlaceholder = "[]";
-
-        public static int ExecuteNonQuery(string sql, object[] values)
+        private static readonly string connStr = ConfigurationManager.ConnectionStrings["LearnSphereDB"].ConnectionString;
+     
+        public static int ExecuteNonQuery(string sql, Dictionary<string, object> paramToValue)
         {
-            sql = GetParameterizedSql(sql);
-            SqlParameter[] parameters = GetSqlParameters(sql, values);
+            SqlParameter[] parameters = GetSqlParameters(paramToValue);
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
@@ -31,16 +29,18 @@ namespace LearnSphere.DAL
             }
         }
 
-        public static DataTable ExecuteQuery(string sql, object[] values) 
+        public static DataTable ExecuteQuery(string sql, Dictionary<string, object> paramToValue) 
         {
-            sql = GetParameterizedSql(sql);
-            SqlParameter[] parameters = GetSqlParameters(sql, values);
+            SqlParameter[] parameters = GetSqlParameters(paramToValue);
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
-                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
 
                     DataTable dt = new DataTable();
                     new SqlDataAdapter(cmd).Fill(dt);
@@ -49,36 +49,17 @@ namespace LearnSphere.DAL
             }
         }
 
-        private static string GetParameterizedSql(string inputSql)
+        private static SqlParameter[] GetSqlParameters(Dictionary<string, object> paramToValue)
         {
-            int placeholderCount = 0;
-            int nextPlaceholderIndex = inputSql.IndexOf(ValuePlaceholder);
-            string parameterizedSql = inputSql;
+            if (paramToValue is null) return null;
 
-            while (nextPlaceholderIndex != -1)
+            SqlParameter[] parameters = new SqlParameter[paramToValue.Count];
+
+            int i = 0;
+            foreach (var pair in paramToValue) 
             {
-                placeholderCount++;
-                parameterizedSql = parameterizedSql.Remove(nextPlaceholderIndex, ValuePlaceholder.Length).Insert(nextPlaceholderIndex, "@p" + placeholderCount);
-                nextPlaceholderIndex = parameterizedSql.IndexOf(ValuePlaceholder, nextPlaceholderIndex + 1);
-            }
-
-            return parameterizedSql;
-        }
-
-        private static SqlParameter[] GetSqlParameters(string parameterizedSql, object[] values)
-        {
-            if (values is null) return null;
-
-            SqlParameter[] parameters = new SqlParameter[values.Length];
-
-            var matches = Regex.Matches(parameterizedSql, @"@\w+");
-
-            if (matches.Count != values.Length) throw new ArgumentException("Number of values does not match number of parameters");
-
-            for (int i=0; i<values.Length; i++)
-            {
-                string match = matches[i].Value;
-                parameters[i] = new SqlParameter(match, values[i] ?? DBNull.Value);
+                parameters[i] = new SqlParameter(pair.Key, pair.Value ?? DBNull.Value);
+                i++;
             }
 
             return parameters;
