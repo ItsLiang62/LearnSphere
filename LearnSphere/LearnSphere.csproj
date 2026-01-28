@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -68,12 +68,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Master\Registration.css" />
+    <Content Include="CSS\Master\Home.css" />
+    <Content Include="Forms\Assessment\Educator\Home.aspx" />
     <Content Include="Forms\Registration\Registration.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DbHelper.cs" />
+    <Compile Include="Forms\Assessment\Educator\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Assessment\Educator\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registration\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -91,9 +100,17 @@
     <Compile Include="Master\Registration.Master.designer.cs">
       <DependentUpon>Registration.Master</DependentUpon>
     </Compile>
+    <Compile Include="Master\Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Master\Home.Master" />
     <None Include="packages.config" />
     <Content Include="Master\Registration.Master" />
     <None Include="Web.Debug.config">
