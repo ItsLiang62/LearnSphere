@@ -1,0 +1,91 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="LearnSphere.Master.HomeMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link href="~/CSS/Master/Home.css" rel="stylesheet" type="text/css" runat="server"/>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="home" runat="server">
+        <asp:ScriptManager runat="server"/>
+        <div class="master-container">
+            <div class="header">
+                <div class="header-component">
+                    <label>Resources</label>
+                </div>
+                <div class="header-component">
+                    <label>Forums</label>
+                </div>
+                <div class="header-component">
+                    <label>Assessments</label>
+                </div>
+                <img src="~/Images/profile.png" runat="server" class="profile-icon"/>
+            </div>
+            <div class="search-container">
+                <asp:TextBox
+                    ID="txtSearch"
+                    runat="server"
+                    CssClass="search-bar" />
+                <asp:Button
+                    ID="btnSearch"
+                    runat="server"
+                    Text="Search"
+                    CssClass="search-button" />
+            </div>
+            <div class="action-container">
+                <div class="dropdown-wrapper">
+                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnClick="FilterDropdown_Click">
+                        <img src="~/Images/filter.png"
+                            runat="server"
+                            class="action-group-component"/>
+                        <asp:Label ID="lblFilterOption" runat="server" Text="None" />
+                        <img src="~/Images/dropdown.png"
+                            runat="server"
+                            class="action-group-component"/>
+                    </asp:LinkButton>
+                    <asp:Panel ID="pnlFilterDropdown" runat="server" CssClass="dropdown-list" Visible="false">
+                        <asp:ContentPlaceHolder
+                            ID="FilterDropdownItemsPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>
+                </div>
+                <div class="dropdown-wrapper">
+                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnClick="SortDropdown_Click">
+                        <img src="~/Images/sort.png"
+                            runat="server"
+                            class="action-group-component"/>
+                        <asp:Label ID="lblSortOption" runat="server" Text="None" />
+                        <img src="~/Images/dropdown.png"
+                            runat="server"
+                            class="action-group-component"/>
+                    </asp:LinkButton>
+                    <asp:Panel ID="pnlSortDropdown" runat="server" CssClass="dropdown-list" Visible="false">
+                        <asp:ContentPlaceHolder
+                            ID="SortDropdownItemsPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>
+                </div>
+                <asp:ContentPlaceHolder 
+                    ID="ActionGroupPlaceholder" 
+                    runat="server"/>
+            </div>
+            <div class="content-container">
+                <asp:ContentPlaceHolder ID="BoxesPlaceholder" runat="server" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>
