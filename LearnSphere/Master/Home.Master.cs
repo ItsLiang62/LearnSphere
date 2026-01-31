@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,36 +13,91 @@ namespace LearnSphere.Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                pnlFilter.Visible = false;
+                pnlSort.Visible = false;
+                pnlDomainFilters.Visible = false;
+                pnlCategoryFilters.Visible = false;
+                pnlMineFilters.Visible = false;
+            }
+            
         }
 
-        public void CloseSortDropdown()
+        public string FilterText
         {
-            pnlSortDropdown.Visible = false;
+            get => lblFilter.Text;
+            set => lblFilter.Text = value;
         }
 
-        public void SelectSortDropdown(string chosenOptionText)
+        public string SortText
         {
-            pnlSortDropdown.Visible = false;
-            Label lbl = (Label) lnkSort.FindControl("lblSortOption");
-            lbl.Text = chosenOptionText;
+            get => lblSort.Text;
+            set => lblSort.Text = value;
         }
 
-        protected void SortDropdown_Click(object sender, EventArgs e)
+        public void CloseSortOptionsColumn()
         {
-            pnlSortDropdown.Visible = !pnlSortDropdown.Visible;
+            pnlSortOptions.Visible = false;
+            pnlSort.Visible = false;
         }
 
-        public void SelectFilterDropdown(string chosenOptionText)
+        private void CloseFilterPanelIfComplete()
         {
-            pnlFilterDropdown.Visible = false;
-            Label lbl = (Label) lnkFilter.FindControl("lblFilterOption");
-            lbl.Text = chosenOptionText;
+            if (pnlCategoryFilters.Visible == false &&
+                pnlMineFilters.Visible == false &&
+                pnlDomainFilters.Visible==false)
+            {
+                pnlFilter.Visible = false;
+            }
         }
 
-        protected void FilterDropdown_Click(object sender, EventArgs e)
+        public void CloseDomainFilterColumn()
         {
-            pnlFilterDropdown.Visible = !pnlFilterDropdown.Visible;
+            pnlDomainFilters.Visible = false;
+            CloseFilterPanelIfComplete();
+        }
+
+        public void CloseCategoryFilterColumn()
+        {
+            pnlCategoryFilters.Visible = false;
+            CloseFilterPanelIfComplete();
+        }
+
+        public void CloseMineFilterColumn()
+        {
+            pnlMineFilters.Visible = false;
+            CloseFilterPanelIfComplete();
+        }
+
+        protected void SortPanel_Click(object sender, EventArgs e)
+        {
+            pnlSort.Visible = !pnlSort.Visible;
+            pnlSortOptions.Visible = true;
+        }
+
+        protected void FilterPanel_Click(object sender, EventArgs e)
+        {
+            if (pnlFilter.Visible)
+            {
+                pnlFilter.Visible = false; 
+            } else
+            {
+                Repeater rptDomain = (Repeater)DomainFiltersPlaceholder.FindControl("DomainRepeater");
+                ContentPlaceHolder cphMine = (ContentPlaceHolder)MineFiltersPlaceholder.FindControl("NestedMineFiltersPlaceholder");
+
+                if (rptDomain != null && cphMine != null)
+                {
+                    pnlFilter.Visible = rptDomain.Items.Count > 0 ||
+                                        CategoryFiltersPlaceholder.Controls.OfType<WebControl>().Any() ||
+                                        cphMine.Controls.OfType<WebControl>().Any();
+
+                    pnlDomainFilters.Visible = rptDomain.Items.Count > 0;
+                    pnlCategoryFilters.Visible = CategoryFiltersPlaceholder.Controls.OfType<WebControl>().Any();
+                    pnlMineFilters.Visible = cphMine.Controls.OfType<WebControl>().Any();
+                }
+            }
+                
         }
     }
 }

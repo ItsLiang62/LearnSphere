@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master/Home.Master" AutoEventWireup="true" CodeBehind="AssessmentHome.master.cs" Inherits="LearnSphere.Master.AssessmentHomeMasterPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+
+<asp:Content ID="CreateAssessment" ContentPlaceHolderID="ActionGroupPlaceholder" runat="server">
+    <asp:Panel runat="server" CssClass="rightmost-action-group">
+        <asp:ContentPlaceHolder 
+            ID="CreateAssessmentPlaceholder" 
+            runat="server" />
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Papers" ContentPlaceHolderID="BoxesPlaceholder" runat="server">
+    <asp:Repeater ID="BoxRepeater" runat="server" OnItemDataBound="BoxRepeater_ItemDataBound">
+        <ItemTemplate>
+            <asp:LinkButton ID="lnkBox" runat="server" CssClass="box" CommandArgument='<%# Eval("PaperID") %>' OnClick="Box_Click">
+                <label class="box-primary-text">
+                    <%# Eval("Title") %>
+                </label>
+
+                <div class="tag-group">
+                    <asp:Repeater ID="TagRepeater" runat="server">
+                        <ItemTemplate>
+                            <span class="tag"><%# Container.DataItem %></span>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+
+                <div class="user-tag">
+                    <img src="~/Images/profile.png" class="user-tag-profile-icon" runat="server"/>
+                    <div class="user-tag-text-group">
+                        <asp:Label CssClass="user-tag-username" runat="server" Text='<%# Eval("EducatorName") %>' />
+                        <asp:Label CssClass="user-tag-domain" runat="server" Text='<%# Eval("EducatorDomain") %>' />
+                    </div>
+                </div>
+            </asp:LinkButton>
+        </ItemTemplate>
+    </asp:Repeater>
+</asp:Content>
+
+<asp:Content ID="DomainFilters" ContentPlaceHolderID="DomainFiltersPlaceholder" runat="server">
+    <asp:Repeater ID="DomainRepeater" runat="server">
+        <ItemTemplate>
+            <asp:LinkButton 
+                ID="lnkDomain" 
+                runat="server" 
+                CssClass="dropdown-item" 
+                Text='<%# Eval("DomainFilter") %>' 
+                OnCommand="DomainFilter_Command"
+                CommandArgument='<%# Eval("DomainFilter") %>'/>
+        </ItemTemplate>
+    </asp:Repeater>
+</asp:Content>
+
+<asp:Content ID="MineFilters" ContentPlaceHolderID="MineFiltersPlaceholder" runat="server">
+    <asp:ContentPlaceHolder 
+        ID="NestedMineFiltersPlaceholder" 
+        runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="PaperSortOptions" ContentPlaceHolderID="SortOptionsPlaceholder" runat="server">
+    <asp:LinkButton 
+        ID="TitleSort" 
+        runat="server" 
+        CssClass="dropdown-item" 
+        Text="Title (A-Z)" 
+        OnCommand="SortOption_Command"
+        CommandArgument="Title (A-Z)"/>
+    <asp:LinkButton 
+        ID="EducatorSort" 
+        runat="server" 
+        CssClass="dropdown-item" 
+        Text="Educator (A-Z)" 
+        OnCommand="SortOption_Command"
+        CommandArgument="Educator (A-Z)"/>
+    <asp:LinkButton 
+        ID="NoneSort" 
+        runat="server" 
+        CssClass="dropdown-item" 
+        Text="None" 
+        OnCommand="SortOption_Command"
+        CommandArgument="None"/>
+</asp:Content>
+

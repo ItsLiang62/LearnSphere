@@ -33,6 +33,42 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.HtmlControls.HtmlForm home;
 
         /// <summary>
+        /// lblResources control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblResources;
+
+        /// <summary>
+        /// lblForums control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblForums;
+
+        /// <summary>
+        /// lblAssessments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lblAssessments;
+
+        /// <summary>
+        /// btnProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnProfile;
+
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -60,31 +96,76 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.LinkButton lnkFilter;
 
         /// <summary>
-        /// lblFilterOption control.
+        /// lblFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFilterOption;
+        protected global::System.Web.UI.WebControls.Label lblFilter;
 
         /// <summary>
-        /// pnlFilterDropdown control.
+        /// pnlFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFilterDropdown;
+        protected global::System.Web.UI.WebControls.Panel pnlFilter;
 
         /// <summary>
-        /// FilterDropdownItemsPlaceholder control.
+        /// pnlDomainFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder FilterDropdownItemsPlaceholder;
+        protected global::System.Web.UI.WebControls.Panel pnlDomainFilters;
+
+        /// <summary>
+        /// DomainFiltersPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder DomainFiltersPlaceholder;
+
+        /// <summary>
+        /// pnlCategoryFilters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCategoryFilters;
+
+        /// <summary>
+        /// CategoryFiltersPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CategoryFiltersPlaceholder;
+
+        /// <summary>
+        /// pnlMineFilters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMineFilters;
+
+        /// <summary>
+        /// MineFiltersPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MineFiltersPlaceholder;
 
         /// <summary>
         /// lnkSort control.
@@ -96,31 +177,40 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.LinkButton lnkSort;
 
         /// <summary>
-        /// lblSortOption control.
+        /// lblSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSortOption;
+        protected global::System.Web.UI.WebControls.Label lblSort;
 
         /// <summary>
-        /// pnlSortDropdown control.
+        /// pnlSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSortDropdown;
+        protected global::System.Web.UI.WebControls.Panel pnlSort;
 
         /// <summary>
-        /// SortDropdownItemsPlaceholder control.
+        /// pnlSortOptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder SortDropdownItemsPlaceholder;
+        protected global::System.Web.UI.WebControls.Panel pnlSortOptions;
+
+        /// <summary>
+        /// SortOptionsPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder SortOptionsPlaceholder;
 
         /// <summary>
         /// ActionGroupPlaceholder control.

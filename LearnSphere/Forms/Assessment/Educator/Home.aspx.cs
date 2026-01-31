@@ -1,43 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using LearnSphere.Master;
 
-namespace LearnSphere.Forms.Assessment
+namespace LearnSphere.Forms.Assessment.Educator
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Home : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
         }
 
-        protected void TitleSort_Click(object sender, EventArgs e)
+        protected void MineFilter_Command(object sender, CommandEventArgs e)
         {
-            ((HomeMasterPage)this.Master).SelectSortDropdown(TitleSort.Text);
-
-        }
-
-        protected void EducatorSort_Click(object sender, EventArgs e)
-        {
-            ((HomeMasterPage)this.Master).SelectSortDropdown(EducatorSort.Text);
-        }
-
-        protected void NoneSort_Click(object sender, EventArgs e)
-        {
-            ((HomeMasterPage)this.Master).SelectSortDropdown(NoneSort.Text);
-        }
-
-        protected void MineFilter_Click(object sender, EventArgs e)
-        {
-            ((HomeMasterPage)this.Master).SelectFilterDropdown(MineFilter.Text);
-        }
-
-        protected void NoneFilter_Click(object sender, EventArgs e)
-        {
-            ((HomeMasterPage)this.Master).SelectFilterDropdown(NoneFilter.Text);
+            string value = e.CommandArgument.ToString();
+            ((AssessmentHomeMasterPage)this.Master).FilterText = value;
+            ((AssessmentHomeMasterPage)this.Master).CloseMineFilterColumn();
         }
     }
 }
