@@ -114,58 +114,31 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.Panel pnlFilter;
 
         /// <summary>
-        /// pnlDomainFilters control.
+        /// DomainFiltersColumnPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDomainFilters;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder DomainFiltersColumnPlaceholder;
 
         /// <summary>
-        /// DomainFiltersPlaceholder control.
+        /// CategoryFiltersColumnPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder DomainFiltersPlaceholder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder CategoryFiltersColumnPlaceholder;
 
         /// <summary>
-        /// pnlCategoryFilters control.
+        /// MineFiltersColumnPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCategoryFilters;
-
-        /// <summary>
-        /// CategoryFiltersPlaceholder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder CategoryFiltersPlaceholder;
-
-        /// <summary>
-        /// pnlMineFilters control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlMineFilters;
-
-        /// <summary>
-        /// MineFiltersPlaceholder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MineFiltersPlaceholder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MineFiltersColumnPlaceholder;
 
         /// <summary>
         /// lnkSort control.
@@ -195,22 +168,13 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.Panel pnlSort;
 
         /// <summary>
-        /// pnlSortOptions control.
+        /// SortsColumnPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSortOptions;
-
-        /// <summary>
-        /// SortOptionsPlaceholder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder SortOptionsPlaceholder;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder SortsColumnPlaceholder;
 
         /// <summary>
         /// ActionGroupPlaceholder control.

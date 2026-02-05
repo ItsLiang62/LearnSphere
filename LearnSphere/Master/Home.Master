@@ -48,7 +48,7 @@
 
                 <div class="dropdown-wrapper">
 
-                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnClick="FilterPanel_Click">
+                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnCommand="FilterPanel_Toggle">
                         <img src="~/Images/filter.png"
                             runat="server"
                             class="action-group-component"/>
@@ -59,34 +59,26 @@
                     </asp:LinkButton>
 
                     <asp:Panel ID="pnlFilter" runat="server" CssClass="dropdown-panel">
+                        <asp:ContentPlaceHolder
+                            ID="DomainFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
 
-                        <asp:Panel ID="pnlDomainFilters" runat="server" CssClass="dropdown-column">
-                            <asp:ContentPlaceHolder
-                                ID="DomainFiltersPlaceholder"
-                                runat="server">
-                            </asp:ContentPlaceHolder>
-                        </asp:Panel>
+                        <asp:ContentPlaceHolder
+                            ID="CategoryFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
 
-                        <asp:Panel ID="pnlCategoryFilters" runat="server" CssClass="dropdown-column">
-                            <asp:ContentPlaceHolder
-                                ID="CategoryFiltersPlaceholder"
-                                runat="server">
-                            </asp:ContentPlaceHolder>
-                        </asp:Panel>
-
-                        <asp:Panel ID="pnlMineFilters" runat="server" CssClass="dropdown-column">
-                            <asp:ContentPlaceHolder
-                                ID="MineFiltersPlaceholder"
-                                runat="server">
-                            </asp:ContentPlaceHolder>
-                        </asp:Panel>
-
+                        <asp:ContentPlaceHolder
+                            ID="MineFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
                     </asp:Panel>   
                     
                 </div>
 
                 <div class="dropdown-wrapper">
-                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnClick="SortPanel_Click">
+                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnCommand="SortPanel_Toggle">
                         <img src="~/Images/sort.png"
                             runat="server"
                             class="action-group-component"/>
@@ -97,12 +89,10 @@
                     </asp:LinkButton>
               
                     <asp:Panel ID="pnlSort" runat="server" CssClass="dropdown-panel">
-                        <asp:Panel ID="pnlSortOptions" runat="server" CssClass="dropdown-column">
-                            <asp:ContentPlaceHolder
-                                ID="SortOptionsPlaceholder"
-                                runat="server">
-                            </asp:ContentPlaceHolder>
-                        </asp:Panel>
+                        <asp:ContentPlaceHolder
+                            ID="SortsColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
                     </asp:Panel>
                 </div>
 

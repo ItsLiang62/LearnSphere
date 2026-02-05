@@ -51,41 +51,14 @@ namespace LearnSphere.Master
                 BoxRepeater.DataSource = paperList;
                 BoxRepeater.DataBind();
             }
+
+            string role = Session["UserType"] as string;
         }
 
         public string FilterText
         {
             get => ((HomeMasterPage)this.Master).FilterText;
             set => ((HomeMasterPage)this.Master).FilterText = value;
-        }
-
-        protected void CloseDomainFilterColumn()
-        {
-            ((HomeMasterPage)this.Master).CloseDomainFilterColumn();
-        }
-
-        protected void CloseCategoryFilterColumn()
-        {
-            ((HomeMasterPage)this.Master).CloseCategoryFilterColumn();
-        }
-
-        public void CloseMineFilterColumn()
-        {
-            ((HomeMasterPage)this.Master).CloseMineFilterColumn();
-        }
-
-        protected void SortOption_Command(object sender, CommandEventArgs e)
-        {
-            string value = e.CommandArgument.ToString();
-            ((HomeMasterPage)this.Master).SortText = value;
-            ((HomeMasterPage)this.Master).CloseSortOptionsColumn();
-        }
-
-        protected void DomainFilter_Command(object sender, CommandEventArgs e)
-        {
-            string value = e.CommandArgument.ToString();
-            ((HomeMasterPage)this.Master).FilterText = value;
-            this.CloseDomainFilterColumn();
         }
 
         protected void BoxRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)

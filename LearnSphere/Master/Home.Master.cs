@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,15 +14,11 @@ namespace LearnSphere.Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
                 pnlFilter.Visible = false;
                 pnlSort.Visible = false;
-                pnlDomainFilters.Visible = false;
-                pnlCategoryFilters.Visible = false;
-                pnlMineFilters.Visible = false;
             }
-            
         }
 
         public string FilterText
@@ -36,68 +33,75 @@ namespace LearnSphere.Master
             set => lblSort.Text = value;
         }
 
-        public void CloseSortOptionsColumn()
+        public void CloseSortPanel()
         {
-            pnlSortOptions.Visible = false;
             pnlSort.Visible = false;
         }
 
-        private void CloseFilterPanelIfComplete()
+        protected void SortPanel_Toggle(object sender, CommandEventArgs e)
         {
-            if (pnlCategoryFilters.Visible == false &&
-                pnlMineFilters.Visible == false &&
-                pnlDomainFilters.Visible==false)
+            pnlSort.Visible = !pnlSort.Visible;
+        }
+
+        protected void FilterPanel_Toggle(object sender, CommandEventArgs e)
+        {
+            if (!pnlFilter.Visible)
+            {
+                // Temporarily make all filter columns visible
+                // To accurately calculate whether filter panel should be visible
+                FilterColumns_SetVisible(); 
+                pnlFilter.Visible =
+                    pnlFilter.Controls
+                        .OfType<ContentPlaceHolder>()
+                        .SelectMany(plc => plc.Controls.OfType<Panel>())
+                        .Any(p => p.Visible);
+            }
+            else
             {
                 pnlFilter.Visible = false;
             }
         }
 
-        public void CloseDomainFilterColumn()
+        protected void FilterColumns_SetVisible()
         {
-            pnlDomainFilters.Visible = false;
-            CloseFilterPanelIfComplete();
-        }
+            // Temporarily make filter panel visible
+            // To enable visibility of filter columns
+            pnlFilter.Visible = true; 
 
-        public void CloseCategoryFilterColumn()
-        {
-            pnlCategoryFilters.Visible = false;
-            CloseFilterPanelIfComplete();
-        }
-
-        public void CloseMineFilterColumn()
-        {
-            pnlMineFilters.Visible = false;
-            CloseFilterPanelIfComplete();
-        }
-
-        protected void SortPanel_Click(object sender, EventArgs e)
-        {
-            pnlSort.Visible = !pnlSort.Visible;
-            pnlSortOptions.Visible = true;
-        }
-
-        protected void FilterPanel_Click(object sender, EventArgs e)
-        {
-            if (pnlFilter.Visible)
+            foreach (Control filterPanelChild in pnlFilter.Controls)
             {
-                pnlFilter.Visible = false; 
-            } else
-            {
-                Repeater rptDomain = (Repeater)DomainFiltersPlaceholder.FindControl("DomainRepeater");
-                ContentPlaceHolder cphMine = (ContentPlaceHolder)MineFiltersPlaceholder.FindControl("NestedMineFiltersPlaceholder");
-
-                if (rptDomain != null && cphMine != null)
+                if (filterPanelChild is ContentPlaceHolder plc) 
                 {
-                    pnlFilter.Visible = rptDomain.Items.Count > 0 ||
-                                        CategoryFiltersPlaceholder.Controls.OfType<WebControl>().Any() ||
-                                        cphMine.Controls.OfType<WebControl>().Any();
-
-                    pnlDomainFilters.Visible = rptDomain.Items.Count > 0;
-                    pnlCategoryFilters.Visible = CategoryFiltersPlaceholder.Controls.OfType<WebControl>().Any();
-                    pnlMineFilters.Visible = cphMine.Controls.OfType<WebControl>().Any();
+                    foreach (Control plcChild in plc.Controls)
+                    {
+                        
+                        if (plcChild is Panel column)
+                        {
+                            column.Visible = FindControlsRecursive<LinkButton>(column).Any();
+                        }
+                    }
                 }
             }
-                
+        }
+
+        public static IEnumerable<T> FindControlsRecursive<T>(Control parent) where T : Control
+        {
+            foreach (Control child in parent.Controls)
+            {
+                if (child is T typedChild)
+                    yield return typedChild;
+
+                foreach (var descendent in FindControlsRecursive<T>(child))
+                    yield return descendent;
+            }
+        }
+
+        public void ConditionallyCloseFilterPanel()
+        {
+            if (pnlFilter.Controls.OfType<ContentPlaceHolder>().All(plc => plc.Controls.OfType<Panel>().All(column => !column.Visible)))
+            {
+                pnlFilter.Visible = false;
+            }
         }
     }
 }

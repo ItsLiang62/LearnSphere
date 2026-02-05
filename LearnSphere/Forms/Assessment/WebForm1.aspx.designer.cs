@@ -7,66 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LearnSphere.Master
+namespace LearnSphere.Forms.Assessment
 {
 
 
-    public partial class ResourcesHomeMasterPage
+    public partial class WebForm1
     {
 
         /// <summary>
-        /// ShareResourcePlaceholder control.
+        /// colDomainFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ShareResourcePlaceholder;
-
-        /// <summary>
-        /// BoxRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater BoxRepeater;
-
-        /// <summary>
-        /// TitleSort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton TitleSort;
-
-        /// <summary>
-        /// PublicationYearSort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton PublicationYearSort;
-
-        /// <summary>
-        /// AuthorSort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton AuthorSort;
-
-        /// <summary>
-        /// NoneSort control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton NoneSort;
+        protected global::System.Web.UI.WebControls.Panel colDomainFilters;
 
         /// <summary>
         /// DomainRepeater control.
@@ -78,39 +33,75 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.Repeater DomainRepeater;
 
         /// <summary>
-        /// Book control.
+        /// colMineFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Book;
+        protected global::System.Web.UI.WebControls.Panel colMineFilters;
 
         /// <summary>
-        /// Article control.
+        /// colSorts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Article;
+        protected global::System.Web.UI.WebControls.Panel colSorts;
 
         /// <summary>
-        /// Lecture control.
+        /// TitleSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Lecture;
+        protected global::System.Web.UI.WebControls.LinkButton TitleSort;
 
         /// <summary>
-        /// NestedMineFiltersPlaceholder control.
+        /// EducatorSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder NestedMineFiltersPlaceholder;
+        protected global::System.Web.UI.WebControls.LinkButton EducatorSort;
+
+        /// <summary>
+        /// NoneSort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton NoneSort;
+
+        /// <summary>
+        /// lnkCreatePaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkCreatePaper;
+
+        /// <summary>
+        /// lblCreatePaper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreatePaper;
+
+        /// <summary>
+        /// BoxRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater BoxRepeater;
     }
 }

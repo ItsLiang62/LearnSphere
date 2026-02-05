@@ -107,8 +107,6 @@ body {
     align-items: center;
     gap: 10px;
     margin-right: 20px;
-    cursor: pointer;
-    background: none;
     border: none;
     text-decoration: none;
     color: inherit;
@@ -127,6 +125,8 @@ body {
     align-items: center;
     gap: 10px;
     margin-left: auto;
+    text-decoration: none;
+    color: inherit;
 }
 
 .content-container {

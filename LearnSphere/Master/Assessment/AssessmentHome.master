@@ -59,7 +59,7 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 
-<asp:Content ID="PaperSortOptions" ContentPlaceHolderID="SortOptionsPlaceholder" runat="server">
+<asp:Content ID="PaperSortOptions" ContentPlaceHolderID="SortsPlaceholder" runat="server">
     <asp:LinkButton 
         ID="TitleSort" 
         runat="server" 
