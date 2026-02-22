@@ -51,12 +51,20 @@ CREATE TABLE EducatorApplication (
 	Email NVARCHAR(50) NOT NULL,
 	PasswordHash NVARCHAR(255) NOT NULL,
 	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
-	Completed BIT NOT NULL DEFAULT 0
+	Completed BIT NOT NULL DEFAULT 0,
 
 	CONSTRAINT FK_DomainName_EducatorApplication
 	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName) 
 	ON DELETE SET DEFAULT
 )
+
+CREATE UNIQUE NONCLUSTERED INDEX UIX_PendingUsername_EducatorApplication
+ON EducatorApplication (Username)
+WHERE Completed = 0;
+
+CREATE UNIQUE NONCLUSTERED INDEX UIX_PendingEmail_EducatorApplication
+ON EducatorApplication (Email)
+WHERE Completed = 0;
 
 CREATE TABLE Certification (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,

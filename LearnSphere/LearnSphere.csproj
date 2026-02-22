@@ -204,6 +204,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\DbHelper.cs" />
     <Compile Include="Forms\Assessment\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -232,7 +233,6 @@
     <Compile Include="Forms\Resource\Learner\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DbHelper.cs" />
     <Compile Include="Forms\Resource\Learner\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,7 +240,6 @@
     <Compile Include="Forms\Resource\Learner\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DbHelper.cs" />
     <Compile Include="Forms\Registration\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -11,7 +11,7 @@ namespace LearnSphere.DAL
     public class DbHelper
     {
         private static readonly string connStr = ConfigurationManager.ConnectionStrings["LearnSphereDB"].ConnectionString;
-     
+
         public static int ExecuteNonQuery(string sql, Dictionary<string, object> paramToValue)
         {
             SqlParameter[] parameters = GetSqlParameters(paramToValue);
@@ -28,7 +28,7 @@ namespace LearnSphere.DAL
             }
         }
 
-        public static DataTable ExecuteQuery(string sql, Dictionary<string, object> paramToValue) 
+        public static DataTable ExecuteQuery(string sql, Dictionary<string, object> paramToValue)
         {
             SqlParameter[] parameters = GetSqlParameters(paramToValue);
 
@@ -44,7 +44,7 @@ namespace LearnSphere.DAL
                     DataTable dt = new DataTable();
                     new SqlDataAdapter(cmd).Fill(dt);
                     return dt;
-                } 
+                }
             }
         }
 
@@ -72,7 +72,7 @@ namespace LearnSphere.DAL
             SqlParameter[] parameters = new SqlParameter[paramToValue.Count];
 
             int i = 0;
-            foreach (var pair in paramToValue) 
+            foreach (var pair in paramToValue)
             {
                 parameters[i] = new SqlParameter(pair.Key, pair.Value ?? DBNull.Value);
                 i++;

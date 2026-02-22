@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -72,8 +72,17 @@ namespace LearnSphere.Forms.Registration
                 }
                 lblApplyStatus.CssClass = "success-text";
                 lblApplyStatus.Text = "Application submitted successfully";
-            } catch (Exception ex)
+            } catch (SqlException ex)
             {
+                lblApplyStatus.CssClass = "error-text";
+                if (ex.Number == 2601 || ex.Number == 2627)
+                {
+                    lblApplyStatus.Text = "Application already submitted";
+                } else
+                {
+                    lblApplyStatus.Text = "Unknown SQL error occured";
+                }
+            } catch (Exception ex) {
                 lblApplyStatus.CssClass = "error-text";
                 lblApplyStatus.Text = ex.Message;
             }
