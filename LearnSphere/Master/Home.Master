@@ -20,68 +20,87 @@
     <form id="home" runat="server">
         <asp:ScriptManager runat="server"/>
         <div class="master-container">
+
             <div class="header">
-                <div class="header-component">
-                    <label>Resources</label>
-                </div>
-                <div class="header-component">
-                    <label>Forums</label>
-                </div>
-                <div class="header-component">
-                    <label>Assessments</label>
-                </div>
-                <img src="~/Images/profile.png" runat="server" class="profile-icon"/>
+                <asp:LinkButton ID="lblResources" runat="server" Text="Resources" CssClass="header-component" />
+                <asp:LinkButton ID="lblForums" runat="server" Text="Forums" CssClass="header-component" />
+                <asp:LinkButton ID="lblAssessments" runat="server" Text="Assessments" CssClass="header-component" />
+                <asp:ImageButton ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-profile-icon" />
             </div>
+
             <div class="search-container">
-                <asp:TextBox
-                    ID="txtSearch"
-                    runat="server"
-                    CssClass="search-bar" />
+                <div class="search-bar-wrapper">
+                    <img src="~/Images/search.png" runat="server" class="search-icon" />
+                    <asp:TextBox
+                        ID="txtSearch"
+                        runat="server"
+                        CssClass="search-bar"/>
+                </div>
+
                 <asp:Button
                     ID="btnSearch"
                     runat="server"
                     Text="Search"
                     CssClass="search-button" />
             </div>
+
             <div class="action-container">
+
                 <div class="dropdown-wrapper">
-                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnClick="FilterDropdown_Click">
+
+                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnCommand="FilterPanel_Toggle">
                         <img src="~/Images/filter.png"
                             runat="server"
                             class="action-group-component"/>
-                        <asp:Label ID="lblFilterOption" runat="server" Text="None" />
+                        <asp:Label ID="lblFilter" runat="server" Text="None" />
                         <img src="~/Images/dropdown.png"
                             runat="server"
                             class="action-group-component"/>
                     </asp:LinkButton>
-                    <asp:Panel ID="pnlFilterDropdown" runat="server" CssClass="dropdown-list" Visible="false">
+
+                    <asp:Panel ID="pnlFilter" runat="server" CssClass="dropdown-panel">
                         <asp:ContentPlaceHolder
-                            ID="FilterDropdownItemsPlaceholder"
+                            ID="DomainFiltersColumnPlaceholder"
                             runat="server">
                         </asp:ContentPlaceHolder>
-                    </asp:Panel>
+
+                        <asp:ContentPlaceHolder
+                            ID="CategoryFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder
+                            ID="MineFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>   
+                    
                 </div>
+
                 <div class="dropdown-wrapper">
-                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnClick="SortDropdown_Click">
+                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnCommand="SortPanel_Toggle">
                         <img src="~/Images/sort.png"
                             runat="server"
                             class="action-group-component"/>
-                        <asp:Label ID="lblSortOption" runat="server" Text="None" />
+                        <asp:Label ID="lblSort" runat="server" Text="None" />
                         <img src="~/Images/dropdown.png"
                             runat="server"
                             class="action-group-component"/>
                     </asp:LinkButton>
-                    <asp:Panel ID="pnlSortDropdown" runat="server" CssClass="dropdown-list" Visible="false">
+              
+                    <asp:Panel ID="pnlSort" runat="server" CssClass="dropdown-panel">
                         <asp:ContentPlaceHolder
-                            ID="SortDropdownItemsPlaceholder"
+                            ID="SortsColumnPlaceholder"
                             runat="server">
                         </asp:ContentPlaceHolder>
                     </asp:Panel>
                 </div>
+
                 <asp:ContentPlaceHolder 
                     ID="ActionGroupPlaceholder" 
                     runat="server"/>
             </div>
+
             <div class="content-container">
                 <asp:ContentPlaceHolder ID="BoxesPlaceholder" runat="server" />
             </div>

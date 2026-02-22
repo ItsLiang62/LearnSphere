@@ -15,13 +15,40 @@ namespace LearnSphere.Forms.Assessment
     {
 
         /// <summary>
-        /// BoxRepeater control.
+        /// colDomainFilters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater BoxRepeater;
+        protected global::System.Web.UI.WebControls.Panel colDomainFilters;
+
+        /// <summary>
+        /// DomainRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater DomainRepeater;
+
+        /// <summary>
+        /// colMineFilters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel colMineFilters;
+
+        /// <summary>
+        /// colSorts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel colSorts;
 
         /// <summary>
         /// TitleSort control.
@@ -51,21 +78,30 @@ namespace LearnSphere.Forms.Assessment
         protected global::System.Web.UI.WebControls.LinkButton NoneSort;
 
         /// <summary>
-        /// MineFilter control.
+        /// lnkCreatePaper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton MineFilter;
+        protected global::System.Web.UI.WebControls.LinkButton lnkCreatePaper;
 
         /// <summary>
-        /// NoneFilter control.
+        /// lblCreatePaper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton NoneFilter;
+        protected global::System.Web.UI.WebControls.Label lblCreatePaper;
+
+        /// <summary>
+        /// BoxRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater BoxRepeater;
     }
 }

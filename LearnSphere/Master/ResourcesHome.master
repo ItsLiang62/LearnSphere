@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Master/Home.Master" AutoEventWireup="true" CodeBehind="ResourcesHome.master.cs" Inherits="LearnSphere.Master.ResourcesHomeMasterPage" %>
+
+<asp:Content ID="ShareResource" ContentPlaceHolderID="ActionGroupPlaceholder" runat="server">
+    <asp:Panel runat="server" CssClass="rightmost-action-group">
+        <asp:ContentPlaceHolder 
+            ID="ShareResourcePlaceholder" 
+            runat="server" />
+    </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Resources" ContentPlaceHolderID="BoxesPlaceholder" runat="server">
+    <asp:Repeater ID="BoxRepeater" runat="server">
+        <ItemTemplate>
+            <asp:LinkButton ID="lnkBox" runat="server" CssClass="box" CommandArgument='<%# Eval("LearningResourceID") %>'>
+                <label class="box-secondary-text">
+                    <%# Eval("Category") %>
+                </label>
+                <div class="box-group">
+                    <label class="box-primary-text">
+                        <%# Eval("Title") %>
+                    </label>
+                    <div class="tag year-tag">
+                        <%# Eval("PublicationYear")  %>
+                    </div>
+                </div>
+                <label class="box-secondary-text">
+                    <%# Eval("Author")  %>
+                </label>
+            </asp:LinkButton>
+        </ItemTemplate>
+    </asp:Repeater>
+</asp:Content>
+
+<asp:Content ID="ResourceSortOptions" ContentPlaceHolderID="SortOptionsPlaceholder" runat="server">
+    <asp:LinkButton ID="TitleSort" runat="server" CssClass="dropdown-item" Text="Title (A-Z)" />
+    <asp:LinkButton ID="PublicationYearSort" runat="server" CssClass="dropdown-item" Text="Publication Year (Oldest to Newest)" />
+    <asp:LinkButton ID="AuthorSort" runat="server" CssClass="dropdown-item" Text="Author (A-Z)" />
+    <asp:LinkButton ID="NoneSort" runat="server" CssClass="dropdown-item" Text="None" />
+</asp:Content>
+
+<asp:Content ID="DomainFilters" ContentPlaceHolderID="DomainFiltersPlaceholder" runat="server">
+    <asp:Repeater ID="DomainRepeater" runat="server">
+        <ItemTemplate>
+            <asp:LinkButton 
+                ID="lnkDomain" 
+                runat="server" 
+                CssClass="dropdown-item" 
+                Text='<%# Eval("DomainFilter") %>' 
+                CommandArgument='<%# Eval("DomainFilter") %>'/>
+        </ItemTemplate>
+    </asp:Repeater>
+</asp:Content>
+
+<asp:Content ID="CategoryFilters" ContentPlaceHolderID="CategoryFiltersPlaceholder" runat="server">
+    <asp:LinkButton ID="Book" runat="server" CssClass="dropdown-item" Text="Book" OnCommand="CategoryFilter_Command" CommandArgument="Book" />
+    <asp:LinkButton ID="Article" runat="server" CssClass="dropdown-item" Text="Article" OnCommand="CategoryFilter_Command" CommandArgument="Article" />
+    <asp:LinkButton ID="Lecture" runat="server" CssClass="dropdown-item" Text="Lecture" OnCommand="CategoryFilter_Command" CommandArgument="Lecture" />
+</asp:Content>
+
+<asp:Content ID="MineFilters" ContentPlaceHolderID="MineFiltersPlaceholder" runat="server">
+    <asp:Panel runat="server" CssClass="dropdown-list">
+        <asp:ContentPlaceHolder 
+            ID="NestedMineFiltersPlaceholder" 
+            runat="server" />
+    </asp:Panel>
+</asp:Content>

@@ -26,13 +26,23 @@ CREATE TABLE Learner (
 	ON DELETE CASCADE
 )
 
+CREATE TABLE Domain (
+	ID INT IDENTITY(1, 1) PRIMARY KEY,
+	DomainName NVARCHAR(50) UNIQUE	
+)
+
 CREATE TABLE Educator (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
 	AccountID INT NOT NULL,
+	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
 
 	CONSTRAINT FK_AccountID_Educator
 	FOREIGN KEY (AccountID) REFERENCES Account(ID)
-	ON DELETE CASCADE
+	ON DELETE CASCADE,
+
+	CONSTRAINT FK_DomainName_Educator
+	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName) 
+	ON DELETE SET DEFAULT
 )
 
 CREATE TABLE EducatorApplication (
@@ -42,6 +52,10 @@ CREATE TABLE EducatorApplication (
 	PasswordHash NVARCHAR(255) NOT NULL,
 	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
 	Completed BIT NOT NULL DEFAULT 0
+
+	CONSTRAINT FK_DomainName_EducatorApplication
+	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName) 
+	ON DELETE SET DEFAULT
 )
 
 CREATE TABLE Certification (
@@ -53,10 +67,6 @@ CREATE TABLE Certification (
 	ON DELETE CASCADE
 )
 
-CREATE TABLE Domain (
-	ID INT IDENTITY(1, 1) PRIMARY KEY,
-	DomainName NVARCHAR(50) UNIQUE	
-)
 
 CREATE TABLE LearningResource (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
