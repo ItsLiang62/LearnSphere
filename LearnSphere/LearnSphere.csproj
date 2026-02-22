@@ -240,13 +240,6 @@
     <Compile Include="Forms\Resource\Learner\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master\Assessment\AssessmentHome.master.cs">
-      <DependentUpon>AssessmentHome.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master\Assessment\AssessmentHome.master.designer.cs">
-      <DependentUpon>AssessmentHome.master</DependentUpon>
-    </Compile>
     <Compile Include="DAL\DbHelper.cs" />
     <Compile Include="Forms\Registration\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -283,7 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master\Home.Master" />
-    <Content Include="Master\Assessment\AssessmentHome.master" />
     <Content Include="Master\ResourcesHome.master" />
     <None Include="packages.config" />
     <Content Include="Master\Registration.Master" />
