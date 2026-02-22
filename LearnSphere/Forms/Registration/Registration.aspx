@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Registration" Language="C#" MasterPageFile="~/Master/Registration.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="LearnSphere.Forms.Registration.WebForm1" %>
-<asp:Content ID="MainContent" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+﻿<%@ Page Title="Registration" Language="C#" MasterPageFile="~/Master/Registration.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="LearnSphere.Forms.Registration.Registration" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="registration-form">
-        <h2>Sign Up for LearnSphere</h2>
+    <div class="form-container">
 
-        <div class="input-group">
+
+        <h2 class="form-component">Sign Up for LearnSphere</h2>
+
+        <div class="form-component">
             <label>I am a...</label>
             
             <asp:DropDownList 
@@ -17,13 +17,20 @@
             </asp:DropDownList>
         </div>
       
-        <div class="input-group">
+        <div class="form-component">
             <label>Username</label>
 
             <asp:TextBox 
                 ID="txtUsername" 
                 runat="server" 
                 CssClass="input-field"/>
+
+            <asp:Label 
+                ID="lblUsernameError" 
+                runat="server" 
+                CssClass="error-text" 
+                Visible="false"
+                EnableViewState="false" />
 
             <asp:RequiredFieldValidator 
                 ID="rfvName" 
@@ -34,7 +41,7 @@
                 CssClass="error-text"/>
         </div>
 
-        <div class="input-group">
+        <div class="form-component">
             <label>Email</label>
             
             <asp:TextBox 
@@ -42,6 +49,13 @@
                 runat="server" 
                 CssClass="input-field" 
                 TextMode="Email"/>
+
+            <asp:Label 
+                ID="lblEmailError" 
+                runat="server" 
+                CssClass="error-text" 
+                Visible="false"
+                EnableViewState="false" />
             
             <asp:RequiredFieldValidator 
                 ID="rfvEmail" 
@@ -52,7 +66,7 @@
                 CssClass="error-text" />
         </div>
         
-        <div class="input-group">
+        <div class="form-component">
             <label>Password</label>
     
             <div class="password-wrapper">
@@ -69,6 +83,13 @@
                      runat="server"/>
             </div>
 
+            <asp:Label 
+                ID="lblPasswordError" 
+                runat="server" 
+                CssClass="error-text" 
+                Visible="false"
+                EnableViewState="false" />
+
             <asp:RequiredFieldValidator 
                 ID="rfvPassword" 
                 runat="server" 
@@ -78,11 +99,23 @@
                 CssClass="error-text" />
         </div>
 
+        <div class="form-component">
+            <asp:Button 
+                ID="btnCreate" 
+                runat="server" 
+                Text="Create Account" 
+                CssClass="btn-primary"
+                OnClick="btnCreate_Click"/>
+        </div>
 
-        <asp:Button ID="btnCreate" runat="server" Text="Create Account" CssClass="btn-primary" />
+        <asp:Label 
+            ID="lblCreateStatus" 
+            runat="server" 
+            Visible="false"
+            EnableViewState="false" />
 
-        <div class="footer-links">
-            Already have an account? <a href="#">Sign In</a>
+        <div class="form-component">
+            <label>Already have an account? <a href="#">Sign In</a></label>
         </div>
     </div>
 

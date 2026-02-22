@@ -49,6 +49,23 @@ namespace LearnSphere.DAL
             }
         }
 
+        public static int ExecuteScalar(string sql, Dictionary<string, object> paramToValue)
+        {
+            SqlParameter[] parameters = GetSqlParameters(paramToValue);
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null)
+                        cmd.Parameters.AddRange(parameters);
+
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+        }
+
         private static SqlParameter[] GetSqlParameters(Dictionary<string, object> paramToValue)
         {
             if (paramToValue is null) return null;

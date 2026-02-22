@@ -39,7 +39,8 @@ CREATE TABLE EducatorApplication (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
 	Username NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
-	PasswordHash NVARCHAR(50) NOT NULL,
+	PasswordHash NVARCHAR(255) NOT NULL,
+	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
 	Completed BIT NOT NULL DEFAULT 0
 )
 
