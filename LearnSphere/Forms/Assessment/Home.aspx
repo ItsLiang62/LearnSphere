@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="LearnSphere.Forms.Assessment.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Home.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="LearnSphere.Forms.Assessment.Home" %>
 
 <asp:Content ID="DomainFiltersColumn" ContentPlaceHolderID="DomainFiltersColumnPlaceholder" runat="server">
     <asp:Panel ID="colDomainFilters" runat="server" CssClass="dropdown-column">

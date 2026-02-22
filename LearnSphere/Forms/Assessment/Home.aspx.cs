@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace LearnSphere.Forms.Assessment
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Home : System.Web.UI.Page
     {
         HomeMasterPage master;
 
