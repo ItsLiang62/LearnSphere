@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using LearnSphere.DAL;
 using BCrypt.Net;
+using Microsoft.Data.SqlClient;
 
 
 namespace LearnSphere.Forms.Registration
@@ -16,7 +17,6 @@ namespace LearnSphere.Forms.Registration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace LearnSphere.Forms.Registration
             string userType = ddlUserType.SelectedValue;
             string username = txtUsername.Text;
             string email = txtEmail.Text;
-            string password = txtPassword.Text;
+            string password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text);
 
             // Validation
             lblUsernameError.Visible = false;
@@ -111,12 +111,48 @@ namespace LearnSphere.Forms.Registration
                     }
 
                     // Redirect to educator application page
-                    Session["Password"] = BCrypt.Net.BCrypt.HashPassword(password);
-                    Response.Redirect($@"EduApplc.aspx?username={username}&email={email}");
+                    Session["Password"] = password;
+                    Response.Redirect($"EduApplc.aspx?username={username}&email={email}");
                     return;
+
+                } else if (ddlUserType.SelectedValue == "Learner")
+                {
+                    string newAccountSql = @"INSERT INTO Account 
+                                             (Username, Email, PasswordHash)
+                                             VALUES
+                                             (@username, @email, @password);
+                                             SELECT CAST(SCOPE_IDENTITY() AS INT)";
+                    string newLearnerSql = @"INSERT INTO Learner
+                                             (AccountID) VALUES (@accountId)";
+                    try
+                    {
+                        int newAccountId = DbHelper.ExecuteScalar(
+                            newAccountSql,
+                            new Dictionary<string, object>
+                            {
+                                { "@username", username },
+                                { "@email", email },
+                                { "@password", password }
+                            }
+                        );
+
+                        DbHelper.ExecuteNonQuery(
+                            newLearnerSql,
+                            new Dictionary<string, object>
+                            {
+                                { "@accountId", newAccountId }
+                            }
+                        );
+
+                        lblCreateStatus.CssClass = "success-text";
+                        lblCreateStatus.Text = "Account successfully created";
+                    } catch (Exception ex)
+                    {
+                        lblCreateStatus.CssClass = "error-text";
+                        lblCreateStatus.Text = ex.Message;
+                    }
                 }
-                lblCreateStatus.CssClass = "success-text";
-                lblCreateStatus.Text = "Account successfully created";
+                    
             }
         }
     }

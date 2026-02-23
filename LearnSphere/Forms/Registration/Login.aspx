@@ -45,8 +45,20 @@
     </div>
 
     <div class="form-component">
-        <asp:Button ID="btnCreate" runat="server" Text="Login" CssClass="btn-primary" />
+        <asp:Button 
+            ID="btnCreate" 
+            OnClick="btnLogin_Click"
+            runat="server" 
+            Text="Login" 
+            CssClass="btn-primary" />
     </div>
+
+    <asp:Label 
+        ID="lblLoginStatus" 
+        runat="server" 
+        Visible="false"
+        CssClass="error-text"
+        EnableViewState="false" />
 
     <div class="form-component">
         <label>Not yet have an account? <a href="#">Sign Up</a></label>

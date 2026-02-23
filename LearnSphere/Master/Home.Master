@@ -28,7 +28,7 @@
                 <asp:ImageButton ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-profile-icon" />
             </div>
 
-            <div class="search-container">
+            <div id="searchContainer" class="search-container" runat="server">
                 <div class="search-bar-wrapper">
                     <img src="~/Images/search.png" runat="server" class="search-icon" />
                     <asp:TextBox
@@ -46,7 +46,7 @@
 
             <div class="action-container">
 
-                <div class="dropdown-wrapper">
+                <div id="filterDropdown" class="dropdown-wrapper" runat="server">
 
                     <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnCommand="FilterPanel_Toggle">
                         <img src="~/Images/filter.png"
@@ -73,11 +73,16 @@
                             ID="MineFiltersColumnPlaceholder"
                             runat="server">
                         </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder
+                            ID="ApplicationStatusFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
                     </asp:Panel>   
                     
                 </div>
 
-                <div class="dropdown-wrapper">
+                <div id="sortDropdown" class="dropdown-wrapper" runat="server">
                     <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnCommand="SortPanel_Toggle">
                         <img src="~/Images/sort.png"
                             runat="server"

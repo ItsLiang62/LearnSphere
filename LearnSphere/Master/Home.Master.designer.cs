@@ -69,6 +69,15 @@ namespace LearnSphere.Master
         protected global::System.Web.UI.WebControls.ImageButton btnProfile;
 
         /// <summary>
+        /// searchContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchContainer;
+
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace LearnSphere.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
+
+        /// <summary>
+        /// filterDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl filterDropdown;
 
         /// <summary>
         /// lnkFilter control.
@@ -139,6 +157,24 @@ namespace LearnSphere.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MineFiltersColumnPlaceholder;
+
+        /// <summary>
+        /// ApplicationStatusFiltersColumnPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ApplicationStatusFiltersColumnPlaceholder;
+
+        /// <summary>
+        /// sortDropdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sortDropdown;
 
         /// <summary>
         /// lnkSort control.

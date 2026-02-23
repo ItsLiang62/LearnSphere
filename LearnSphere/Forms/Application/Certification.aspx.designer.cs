@@ -7,65 +7,65 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LearnSphere.Forms.Registration
+namespace LearnSphere.Forms.Application
 {
 
 
-    public partial class Login
+    public partial class Certification
     {
 
         /// <summary>
-        /// txtUsernameEmail control.
+        /// frmCertification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsernameEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmCertification;
 
         /// <summary>
-        /// rfvUsernameEmail control.
+        /// fvApplicationInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUsernameEmail;
+        protected global::System.Web.UI.WebControls.FormView fvApplicationInfo;
 
         /// <summary>
-        /// txtPassword control.
+        /// ltCert control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.Literal ltCert;
 
         /// <summary>
-        /// rfvPassword control.
+        /// actionContainer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl actionContainer;
 
         /// <summary>
-        /// btnCreate control.
+        /// btnApprove control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
+        protected global::System.Web.UI.WebControls.Button btnApprove;
 
         /// <summary>
-        /// lblLoginStatus control.
+        /// btnReject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoginStatus;
+        protected global::System.Web.UI.WebControls.Button btnReject;
     }
 }

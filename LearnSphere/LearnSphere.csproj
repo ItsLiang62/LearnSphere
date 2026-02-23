@@ -193,8 +193,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\Application\Certification.css" />
     <Content Include="CSS\Master\Registration.css" />
     <Content Include="CSS\Master\Home.css" />
+    <Content Include="Forms\Application\Home.aspx" />
+    <Content Include="Forms\Application\Certification.aspx" />
     <Content Include="Forms\Assessment\Home.aspx" />
     <Content Include="Forms\Registration\Registration.aspx" />
     <Content Include="Forms\Registration\EduApplc.aspx" />
@@ -205,6 +208,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DbHelper.cs" />
+    <Compile Include="Forms\Application\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Application\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Application\Certification.aspx.cs">
+      <DependentUpon>Certification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Application\Certification.aspx.designer.cs">
+      <DependentUpon>Certification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Assessment\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
