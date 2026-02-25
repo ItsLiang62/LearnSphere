@@ -26,13 +26,13 @@
                 ID="txtPassword"
                 TextMode="Password"
                 CssClass="input-field"
-                runat="server"/>
+                runat="server"
+                ClientIDMode="Static" />
 
-            <img src="~/Images/eye.png" 
+            <img src='<%= ResolveUrl("~/Images/eye.png") %>'
                 class="eye-icon"
-                onclick="togglePassword()"
-                alt="Toggle Password"
-                runat="server"/>
+                onclick="togglePasswordLogin()"
+                alt="Toggle Password" />
         </div>
 
         <asp:RequiredFieldValidator 
@@ -61,14 +61,17 @@
         EnableViewState="false" />
 
     <div class="form-component">
-        <label>Not yet have an account? <a href="#">Sign Up</a></label>
-        <label>Forgot your password? <a href="#">Reset Password</a></label>
+        <label>Not yet have an account? 
+            <asp:LinkButton ID="lnkSignUp" runat="server" OnClick="lnkSignUp_Click">Sign Up</asp:LinkButton>
+        </label>
     </div>
 
-    <script>
-        function togglePassword() {
-            var txt = document.getElementById('<%= txtPassword.ClientID %>');
-            txt.type = txt.type == 'password' ? 'text' : 'password';
-        }
-    </script>
+        <script>
+            function togglePasswordLogin() {
+                var txt = document.getElementById("txtPassword");
+                if (txt) {
+                    txt['type'] = (txt['type'] === 'password') ? 'text' : 'password';
+                }
+            }
+        </script>
 </asp:Content>

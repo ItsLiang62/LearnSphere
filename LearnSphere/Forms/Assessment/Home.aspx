@@ -13,10 +13,16 @@
                     CommandArgument='<%# Eval("DomainFilter") %>'/>
             </ItemTemplate>
         </asp:Repeater>
+        <asp:LinkButton
+            CssClass="dropdown-item"
+            Text="None"
+            CommandArgument="None"
+            OnCommand="DomainFilter_Command"
+            runat="server"/>
     </asp:Panel>
 </asp:Content>
 
-<asp:Content ID="MineFiltersColumn" ContentPlaceHolderID="MineFiltersColumnPlaceholder" runat="server">
+<asp:Content ID="plcMineFiltersColumn" ContentPlaceHolderID="MineFiltersColumnPlaceholder" runat="server">
     <asp:Panel ID="colMineFilters" runat="server" CssClass="dropdown-column">
         <asp:LinkButton 
             CssClass="dropdown-item" 
@@ -72,7 +78,7 @@
         <ItemTemplate>
             <asp:LinkButton ID="lnkBox" runat="server" CssClass="box" CommandArgument='<%# Eval("PaperID") %>' OnCommand="Box_Command">
                 <label class="box-primary-text">
-                    <%# Eval("Title") %>
+                    <%# Eval("PaperTitle") %>
                 </label>
 
                 <div class="tag-group">

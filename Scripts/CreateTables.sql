@@ -17,6 +17,10 @@ CREATE TABLE Administrator (
 	ON DELETE CASCADE
 )
 
+INSERT INTO Account (Username, Email, PasswordHash) 
+VALUES ('Admin', 'admin@email.com', '$2a$11$CbtuVjj3YMUHF9Sc5wrN5.pI6GbVxVIPPRkowOzE7Ycd4R3IAGH6K')
+INSERT INTO Administrator (AccountID) VALUES (1)
+
 CREATE TABLE Learner (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
 	AccountID INT NOT NULL,
@@ -34,7 +38,7 @@ CREATE TABLE Domain (
 CREATE TABLE Educator (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
 	AccountID INT NOT NULL,
-	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
+	DomainName NVARCHAR(50) NOT NULL,
 
 	CONSTRAINT FK_AccountID_Educator
 	FOREIGN KEY (AccountID) REFERENCES Account(ID)
@@ -42,7 +46,7 @@ CREATE TABLE Educator (
 
 	CONSTRAINT FK_DomainName_Educator
 	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName) 
-	ON DELETE SET DEFAULT
+	ON DELETE CASCADE
 )
 
 CREATE TABLE EducatorApplication (
@@ -50,12 +54,12 @@ CREATE TABLE EducatorApplication (
 	Username NVARCHAR(50) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	PasswordHash NVARCHAR(255) NOT NULL,
-	DomainName NVARCHAR(50) NOT NULL DEFAULT 'General Education',
+	DomainName NVARCHAR(50) NOT NULL,
 	Completed BIT NOT NULL DEFAULT 0,
 
 	CONSTRAINT FK_DomainName_EducatorApplication
 	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName) 
-	ON DELETE SET DEFAULT
+	ON DELETE CASCADE
 )
 
 CREATE UNIQUE NONCLUSTERED INDEX UIX_PendingUsername_EducatorApplication
@@ -83,11 +87,11 @@ CREATE TABLE LearningResource (
 	PublicationYear INT NOT NULL,
 	Category NVARCHAR(50) NOT NULL,
 	Locator NVARCHAR(500) NOT NULL,
-	DomainID INT NOT NULL,
+	DomainName NVARCHAR(50) NOT NULL,
 	SharerID INT NOT NULL,
 
-	CONSTRAINT FK_DomainID_LearningResource 
-	FOREIGN KEY (DomainID) REFERENCES Domain(ID)
+	CONSTRAINT FK_DomainName_LearningResource 
+	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName)
 	ON DELETE CASCADE,
 
 	CONSTRAINT FK_SharerID_LearningResource 
@@ -101,11 +105,11 @@ CREATE TABLE LearningResource (
 CREATE TABLE Forum (
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
 	Topic NVARCHAR(50) NOT NULL,
-	DomainID INT NOT NULL,
+	DomainName NVARCHAR(50) NOT NULL,
 	CreatorID INT NOT NULL,
 
-	CONSTRAINT FK_DomainID_Forum 
-	FOREIGN KEY (DomainID) REFERENCES Domain(ID)
+	CONSTRAINT FK_DomainName_Forum 
+	FOREIGN KEY (DomainName) REFERENCES Domain(DomainName)
 	ON DELETE CASCADE,
 
 	CONSTRAINT FK_CreatorID_Forum
@@ -175,3 +179,16 @@ CREATE TABLE Attempt (
 
 	CONSTRAINT CHK_Marks CHECK (Marks BETWEEN -1 AND 100)
 )
+
+INSERT INTO Domain (DomainName)
+VALUES 
+('Biology'), ('Astrology'), ('Astronomy'), ('Physics'), ('Chemistry'),
+('Geology'), ('Neuroscience'), ('Psychology'), ('Sociology'), ('Anthropology'),
+('Archaeology'), ('Paleontology'), ('Botany'), ('Zoology'), ('Ecology'),
+('Genetics'), ('Meteorology'), ('Oceanography'), ('Philosophy'), ('Ethics'),
+('Theology'), ('Linguistics'), ('Economics'), ('Political Science'), ('History'),
+('Geography'), ('Mathematics'), ('Statistics'), ('Computer Science'), ('Robotics'),
+('Architecture'), ('Engineering'), ('Medicine'), ('Pharmacology'), ('Epidemiology'),
+('Literature'), ('Art History'), ('Musicology'), ('Cinematography'), ('Photography'),
+('Graphic Design'), ('Journalism'), ('Criminology'), ('Law'), ('Finance'),
+('Marketing'), ('Education'), ('Agronomy'), ('Aeronautics'), ('Cryptography');

@@ -29,7 +29,7 @@ namespace LearnSphere.Forms.Application
         protected void ApplicationStatusFilter_Command(object sender, CommandEventArgs e)
         {
             string value = e.CommandArgument.ToString();
-            ((HomeMasterPage)this.Master).FilterText = value;
+            ((HomeMasterPage)this.Master).SelectedFilters = value;
             colApplicationStatusFilters.Visible = false;
             ((HomeMasterPage)this.Master).ConditionallyCloseFilterPanel();
         }

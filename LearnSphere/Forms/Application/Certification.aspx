@@ -18,9 +18,9 @@
         <asp:ScriptManager runat="server"/>
         <div class="master-container">
             <div class="header">
-                <img src="~/Images/back.png" class="header-button" runat="server" />
+                <asp:ImageButton OnClick="btnBack_Click" ID="btnBack" runat="server" ImageUrl="~/Images/back.png" CssClass="header-button" />
                 <img src="~/Images/logo-dark-mode.png" class="logo" runat="server" />
-                <img src="~/Images/profile.png" class="header-button" runat="server" />
+                <asp:ImageButton OnClick="btnProfile_Click" ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-button" />
             </div>
 
             <asp:FormView ID="fvApplicationInfo" runat="server">

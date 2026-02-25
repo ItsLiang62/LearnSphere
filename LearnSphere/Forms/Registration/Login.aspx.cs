@@ -16,7 +16,8 @@ namespace LearnSphere.Forms.Registration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["UserType"] = "Visitor";
+            Session["AccountID"] = null;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -77,16 +78,18 @@ namespace LearnSphere.Forms.Registration
 
                     if (learner != null)
                     {
-                        // TBF: redirect to resource home page + pass on all user info
+                        Session["UserType"] = "Learner";
                     }
                     else if (educator != null)
                     {
-
+                        Session["UserType"] = "Educator";
                     }
                     else if (admin != null)
                     {
-                        Response.Redirect($"~/Forms/Application/Home.aspx");
+                        Session["UserType"] = "Admin";
+                        
                     }
+                    Response.Redirect($"~/Forms/Resource/Home.aspx");
                 } catch (SqlException ex)
                 {
                     lblLoginStatus.Visible = true;
@@ -97,6 +100,11 @@ namespace LearnSphere.Forms.Registration
                 lblLoginStatus.Visible = true;
                 lblLoginStatus.Text = "Incorrect credentials";
             }
+        }
+
+        protected void lnkSignUp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Registration/Registration.aspx");
         }
     }
 }

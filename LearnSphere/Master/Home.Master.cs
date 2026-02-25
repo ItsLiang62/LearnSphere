@@ -18,10 +18,14 @@ namespace LearnSphere.Master
             {
                 pnlFilter.Visible = false;
                 pnlSort.Visible = false;
+                if (!Session["UserType"].Equals("Admin"))
+                {
+                    lblApplication.Visible = false;
+                }
             }
         }
 
-        public string FilterText
+        public string SelectedFilters
         {
             get => lblFilter.Text;
             set => lblFilter.Text = value;
@@ -31,6 +35,13 @@ namespace LearnSphere.Master
         {
             get => lblSort.Text;
             set => lblSort.Text = value;
+        }
+
+        public event EventHandler SearchButtonClicked;
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchButtonClicked?.Invoke(this, EventArgs.Empty);
         }
 
         public void CloseSortPanel()
@@ -103,5 +114,42 @@ namespace LearnSphere.Master
                 pnlFilter.Visible = false;
             }
         }
+
+        public void CloseFilterColumn(Panel filterColumn)
+        {
+            filterColumn.Visible = false;
+            ConditionallyCloseFilterPanel();
+        }
+
+        public void SetLblFilter(List<string> selectedFilters)
+        {
+            lblFilter.Text = string.Join(", ", selectedFilters);
+        }
+
+        public void lblResources_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Resource/Home.aspx");
+        }
+
+        public void lblForums_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Forum/Home.aspx");
+        }
+
+        public void lblAssessments_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Assessment/Home.aspx");
+        }
+
+        public void lblApplications_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Application/Home.aspx");
+        }
+
+        public void btnProfile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Profile/Profile.aspx");
+        }
+
     }
 }

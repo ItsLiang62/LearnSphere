@@ -22,10 +22,11 @@
         <div class="master-container">
 
             <div class="header">
-                <asp:LinkButton ID="lblResources" runat="server" Text="Resources" CssClass="header-component" />
-                <asp:LinkButton ID="lblForums" runat="server" Text="Forums" CssClass="header-component" />
-                <asp:LinkButton ID="lblAssessments" runat="server" Text="Assessments" CssClass="header-component" />
-                <asp:ImageButton ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-profile-icon" />
+                <asp:LinkButton OnClick="lblResources_Click" ID="lblResources" runat="server" Text="Resources" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblForums_Click" ID="lblForums" runat="server" Text="Forums" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblAssessments_Click" ID="lblAssessments" runat="server" Text="Assessments" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblApplications_Click" ID="lblApplication" runat="server" Text="Applications" CssClass="header-component" />
+                <asp:ImageButton OnClick="btnProfile_Click" ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-profile-icon" />
             </div>
 
             <div id="searchContainer" class="search-container" runat="server">
@@ -41,6 +42,7 @@
                     ID="btnSearch"
                     runat="server"
                     Text="Search"
+                    OnClick="btnSearch_Click"
                     CssClass="search-button" />
             </div>
 
@@ -52,6 +54,10 @@
                         <img src="~/Images/filter.png"
                             runat="server"
                             class="action-group-component"/>
+                        <asp:ContentPlaceHolder
+                            ID="plcSelectedFilterRepeater"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
                         <asp:Label ID="lblFilter" runat="server" Text="None" />
                         <img src="~/Images/dropdown.png"
                             runat="server"

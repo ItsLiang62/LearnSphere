@@ -88,6 +88,12 @@ label {
     text-decoration: none;
 }
 
+.button-group {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
 .input-field {
     width: 100%;
     padding: 12px;
@@ -162,6 +168,22 @@ select.input-field {
 
 .btn-primary:hover {
     background-color: #1E429F;
+}
+
+.btn-secondary {
+    background-color: #FFFFFF;
+    border: 3px solid #DC2626;
+    transition: background 0.2s;
+    color: #DC2626;
+    padding: 12px 32px;
+    font-family: Roboto;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-secondary:hover {
+    background-color: #F1F3F5;
 }
 
 

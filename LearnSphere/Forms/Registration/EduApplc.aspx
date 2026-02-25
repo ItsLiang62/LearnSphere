@@ -39,13 +39,20 @@
                 CssClass="error-text"/>
         </div>
 
-         <div class="form-component">
+         <div class="button-group">
              <asp:Button 
                  ID="btnApply" 
                  runat="server" 
                  Text="Apply" 
                  CssClass="btn-primary"
                  OnClick="btnApply_Click"/>
+
+             <asp:Button 
+                ID="btnBack" 
+                runat="server" 
+                Text="Back" 
+                CssClass="btn-secondary"
+                OnClick="btnBack_Click"/>
          </div>
 
         <asp:Label 
@@ -63,8 +70,9 @@
         function displayFileName(input) {
             if (input.files && input.files.length > 0) {
                 var file = input.files[0];
-                if (file.type == "application/pdf") {
-                    document.getElementById('lblFiles').innerText = file.name;
+                var lblFiles = document.getElementById('lblFiles')
+                if (file.type == "application/pdf" && lblFiles != null) {
+                    lblFiles.innerText = file.name;
                 } else {
                     input.value = "";
                 }

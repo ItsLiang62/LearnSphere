@@ -16,8 +16,8 @@ namespace LearnSphere.Master
 
         public string FilterText
         {
-            get => ((HomeMasterPage)this.Master).FilterText;
-            set => ((HomeMasterPage)this.Master).FilterText = value;
+            get => ((HomeMasterPage)this.Master).SelectedFilters;
+            set => ((HomeMasterPage)this.Master).SelectedFilters = value;
         }
     }
 }

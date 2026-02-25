@@ -92,6 +92,13 @@ body {
     font-family: inherit;
 }
 
+.success-text {
+    min-height: 18px;
+    font-size: 18px;
+    color: #0D9D6B;
+    font-family: inherit;
+}
+
 .certification-container iframe {
     width: 100%;
     height: 100%;

@@ -17,6 +17,9 @@ namespace LearnSphere.Forms.Registration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["Password"] = null;
+            Session["UserType"] = "Visitor";
+            Session["AccountID"] = null;
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -154,6 +157,11 @@ namespace LearnSphere.Forms.Registration
                 }
                     
             }
+        }
+
+        protected void lnkSignIn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Registration/Login.aspx");
         }
     }
 }

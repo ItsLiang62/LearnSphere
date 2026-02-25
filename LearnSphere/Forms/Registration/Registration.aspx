@@ -74,13 +74,13 @@
                     ID="txtPassword" 
                     runat="server" 
                     CssClass="input-field" 
-                    TextMode="Password"/>
+                    TextMode="Password" 
+                    ClientIDMode="Static" />
 
-                <img src="~/Images/eye.png" 
+                <img src='<%= ResolveUrl("~/Images/eye.png") %>'
                      class="eye-icon" 
-                     onclick="togglePassword()" 
-                     alt="Toggle Password" 
-                     runat="server"/>
+                     onclick="togglePasswordRegistration()" 
+                     alt="Toggle Password" />
             </div>
 
             <asp:Label 
@@ -115,14 +115,19 @@
             EnableViewState="false" />
 
         <div class="form-component">
-            <label>Already have an account? <a href="#">Sign In</a></label>
+            <label>
+                Already have an account?
+                <asp:LinkButton ID="lnkSignIn" runat="server" OnClick="lnkSignIn_Click">Sign In</asp:LinkButton>
+            </label>
         </div>
     </div>
 
-    <script>
-        function togglePassword() {
-            var txt = document.getElementById('<%= txtPassword.ClientID %>');
-            txt.type = txt.type == 'password' ? 'text' : 'password';
+    <script type="text/javascript">
+        function togglePasswordRegistration() {
+            var txt = document.getElementById("txtPassword");
+            if (txt) {
+                txt['type'] = (txt['type'] === 'password') ? 'text' : 'password';
+            }
         }
     </script>
 </asp:Content>

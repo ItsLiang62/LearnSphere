@@ -16,6 +16,9 @@ namespace LearnSphere.Forms.Registration
         {
             if (!IsPostBack)
             {
+                Session["UserType"] = "Visitor";
+                Session["AccountID"] = null;
+
                 DataTable domains = DbHelper.ExecuteQuery(
                 @"SELECT ID, DomainName FROM Domain", null
                 );
@@ -59,7 +62,7 @@ namespace LearnSphere.Forms.Registration
                 if (fileUpload.HasFile)
                 {
                     string folderPath = Server
-                        .MapPath("~/Pending-Application-Certifications/");
+                        .MapPath("~/Certifications/");
 
                     if (!System.IO.Directory.Exists(folderPath)) System.IO.Directory.CreateDirectory(folderPath);
 
@@ -87,6 +90,11 @@ namespace LearnSphere.Forms.Registration
                 lblApplyStatus.Text = ex.Message;
             }
             
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Registration/Registration.aspx");
         }
     }
 }
