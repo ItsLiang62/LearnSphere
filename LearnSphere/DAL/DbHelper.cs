@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Configuration;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Text.RegularExpressions;
 
 namespace LearnSphere.DAL
 {
     public class DbHelper
     {
         private static readonly string connStr = ConfigurationManager.ConnectionStrings["LearnSphereDB"].ConnectionString;
-     
+
         public static int ExecuteNonQuery(string sql, Dictionary<string, object> paramToValue)
         {
             SqlParameter[] parameters = GetSqlParameters(paramToValue);
@@ -29,7 +28,7 @@ namespace LearnSphere.DAL
             }
         }
 
-        public static DataTable ExecuteQuery(string sql, Dictionary<string, object> paramToValue) 
+        public static DataTable ExecuteQuery(string sql, Dictionary<string, object> paramToValue)
         {
             SqlParameter[] parameters = GetSqlParameters(paramToValue);
 
@@ -45,7 +44,24 @@ namespace LearnSphere.DAL
                     DataTable dt = new DataTable();
                     new SqlDataAdapter(cmd).Fill(dt);
                     return dt;
-                } 
+                }
+            }
+        }
+
+        public static int ExecuteScalar(string sql, Dictionary<string, object> paramToValue)
+        {
+            SqlParameter[] parameters = GetSqlParameters(paramToValue);
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null)
+                        cmd.Parameters.AddRange(parameters);
+
+                    conn.Open();
+                    return Convert.ToInt32(cmd.ExecuteScalar());
+                }
             }
         }
 
@@ -56,7 +72,7 @@ namespace LearnSphere.DAL
             SqlParameter[] parameters = new SqlParameter[paramToValue.Count];
 
             int i = 0;
-            foreach (var pair in paramToValue) 
+            foreach (var pair in paramToValue)
             {
                 parameters[i] = new SqlParameter(pair.Key, pair.Value ?? DBNull.Value);
                 i++;

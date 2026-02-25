@@ -7,128 +7,110 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LearnSphere.Forms.Registration
+namespace LearnSphere.Master
 {
 
 
-    public partial class Registration
+    public partial class ResourcesHomeMasterPage
     {
 
         /// <summary>
-        /// ddlUserType control.
+        /// ShareResourcePlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlUserType;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ShareResourcePlaceholder;
 
         /// <summary>
-        /// txtUsername control.
+        /// BoxRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.Repeater BoxRepeater;
 
         /// <summary>
-        /// lblUsernameError control.
+        /// TitleSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUsernameError;
+        protected global::System.Web.UI.WebControls.LinkButton TitleSort;
 
         /// <summary>
-        /// rfvName control.
+        /// PublicationYearSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvName;
+        protected global::System.Web.UI.WebControls.LinkButton PublicationYearSort;
 
         /// <summary>
-        /// txtEmail control.
+        /// AuthorSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmail;
+        protected global::System.Web.UI.WebControls.LinkButton AuthorSort;
 
         /// <summary>
-        /// lblEmailError control.
+        /// NoneSort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailError;
+        protected global::System.Web.UI.WebControls.LinkButton NoneSort;
 
         /// <summary>
-        /// rfvEmail control.
+        /// DomainRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmail;
+        protected global::System.Web.UI.WebControls.Repeater DomainRepeater;
 
         /// <summary>
-        /// txtPassword control.
+        /// Book control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.LinkButton Book;
 
         /// <summary>
-        /// lblPasswordError control.
+        /// Article control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPasswordError;
+        protected global::System.Web.UI.WebControls.LinkButton Article;
 
         /// <summary>
-        /// rfvPassword control.
+        /// Lecture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        protected global::System.Web.UI.WebControls.LinkButton Lecture;
 
         /// <summary>
-        /// btnCreate control.
+        /// NestedMineFiltersPlaceholder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreate;
-
-        /// <summary>
-        /// lblCreateStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCreateStatus;
-
-        /// <summary>
-        /// lnkSignIn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSignIn;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder NestedMineFiltersPlaceholder;
     }
 }

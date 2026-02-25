@@ -1,0 +1,164 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto;
+    background-color: #FFFFFF;
+    font-size: 18px;
+}
+
+.master-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background-color: #1E429F;
+    padding: 0 100px;
+}
+
+.back-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(0.25);
+}
+
+.body-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.info-user-type-body {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    min-width: 0;
+    gap: 10px;
+}
+
+.user-type {
+    font-weight: 600;
+    font-size: 48px;
+    color: #1A1A1A;
+}
+
+.info-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    row-gap: 15px;
+    column-gap: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.field {
+    font-weight: 600;
+    font-size: 24px;
+    color: #1A1A1A;
+}
+
+.value {
+    font-size: 24px;
+    color: #718096;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.text-box {
+    background-color: #E0E8FF80;
+    border: none;
+}
+
+.error-text {
+    display: block;
+    color: #DC2626;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.success-text {
+    display: block;
+    font-size: 16px;
+    color: #0D9D6B;
+    font-family: inherit;
+}
+
+.edit-button {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+}
+
+.action-button {
+    width: 100%;
+    height: 40px;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-button {
+    background-color: #2A5BD7;
+    color: white;
+    transition: background 0.2s;
+    border: none;
+}
+
+.save-button:hover {
+    background-color: #1E429F;
+}
+
+.log-out-button {
+    background-color: #FFFFFF;
+    color: #DC2626;
+    transition: background 0.2s;
+    border: 3px solid #DC2626;
+}
+
+.log-out-button:hover {
+    background-color: #F1F3F5;
+}
+
