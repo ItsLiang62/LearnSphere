@@ -67,10 +67,135 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Content Include="CSS\Application\Certification.css" />
+    <Content Include="CSS\Forum\forum-create.css" />
+    <Content Include="CSS\Forum\forum-details.css" />
+    <Content Include="CSS\Master\Registration.css" />
+    <Content Include="CSS\Master\Home.css" />
+    <Content Include="CSS\Profile\Profile.css" />
+    <Content Include="Forms\Application\Home.aspx" />
+    <Content Include="Forms\Application\Certification.aspx" />
+    <Content Include="Forms\Assessment\Home.aspx" />
+    <Content Include="Forms\Forum\CreateForum.aspx" />
+    <Content Include="Forms\Forum\ForumDetails.aspx" />
+    <Content Include="Forms\Forum\Home.aspx" />
+    <Content Include="Forms\Profile\Profile.aspx" />
+    <Content Include="Forms\Registration\Registration.aspx" />
+    <Content Include="Forms\Registration\EduApplc.aspx" />
+    <Content Include="Forms\Registration\Login.aspx" />
+    <Content Include="Forms\Resource\Home.aspx" />
+    <Content Include="Global.asax" />
+>>>>>>> Stashed changes
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\DbHelper.cs" />
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Forms\Application\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Application\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Application\Certification.aspx.cs">
+      <DependentUpon>Certification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Application\Certification.aspx.designer.cs">
+      <DependentUpon>Certification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Assessment\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Assessment\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forum\CreateForum.aspx.cs">
+      <DependentUpon>CreateForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Forum\CreateForum.aspx.designer.cs">
+      <DependentUpon>CreateForum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forum\ForumDetails.aspx.cs">
+      <DependentUpon>ForumDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Forum\ForumDetails.aspx.designer.cs">
+      <DependentUpon>ForumDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forum\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Forum\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Profile\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Profile\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration\EduApplc.aspx.cs">
+      <DependentUpon>EduApplc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration\EduApplc.aspx.designer.cs">
+      <DependentUpon>EduApplc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Registration\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Registration\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Resource\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Resource\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ResourcesHome.master.cs">
+      <DependentUpon>ResourcesHome.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ResourcesHome.master.designer.cs">
+      <DependentUpon>ResourcesHome.master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Registration.Master.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Registration.Master.designer.cs">
+      <DependentUpon>Registration.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\Home.Master.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Home.Master.designer.cs">
+      <DependentUpon>Home.Master</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
