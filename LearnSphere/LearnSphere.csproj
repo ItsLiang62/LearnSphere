@@ -277,13 +277,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Master\ResourcesHome.master.cs">
-      <DependentUpon>ResourcesHome.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master\ResourcesHome.master.designer.cs">
-      <DependentUpon>ResourcesHome.master</DependentUpon>
-    </Compile>
     <Compile Include="Master\Registration.Master.cs">
       <DependentUpon>Registration.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master\Home.Master" />
-    <Content Include="Master\ResourcesHome.master" />
     <None Include="packages.config" />
     <Content Include="Master\Registration.Master" />
     <None Include="Web.Debug.config">
