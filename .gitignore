@@ -219,3 +219,5 @@ docker-compose.override.yml
 # Sample/placeholder images to keep
 !wwwroot/images/logo.png
 !wwwroot/images/logo-placeholder.png
+
+*.pdf

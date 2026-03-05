@@ -1,0 +1,145 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto;
+    background-color: #FFFFFF;
+    font-size: 18px;
+}
+
+.master-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background-color: #1E429F;
+    padding: 0 100px;
+}
+
+.logo {
+    transform: scale(0.25);
+}
+
+.header-button {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.application-info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 20px 100px;
+    gap: 20px;
+}
+
+.application-info-primary {
+    color: #1A1A1A;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.application-info-secondary {
+    color: #718096;
+    font-size: 16px;
+}
+
+.application-status-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    height: 30px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #1A1A1A;
+    background-color: #E0E8FF;
+    border-radius: 15px;
+    white-space: nowrap;
+}
+
+.certification-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #E0E8FF;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-text {
+    min-height: 18px;
+    font-size: 18px;
+    color: #DC2626;
+    font-family: inherit;
+}
+
+.success-text {
+    min-height: 18px;
+    font-size: 18px;
+    color: #0D9D6B;
+    font-family: inherit;
+}
+
+.certification-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: row;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-button {
+    flex: 1;
+    height: 100%;
+    font-size: 28px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.approve-button {
+    background-color: #2A5BD7;
+    color: white;
+    transition: background 0.2s;
+    border: none;
+}
+
+.approve-button:hover {
+    background-color: #1E429F;
+}
+
+.reject-button {
+    background-color: #FFFFFF;
+    border: 5px solid #DC2626;
+    transition: background 0.2s;
+    color: #DC2626; 
+}
+
+.reject-button:hover {
+    background-color: #F1F3F5;
+}

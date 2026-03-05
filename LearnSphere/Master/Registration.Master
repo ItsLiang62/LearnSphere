@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Registration.Master.cs" Inherits="LearnSphere.Pages.Master.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Registration</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link href="~/CSS/Master/Registration.css" rel="stylesheet" type="text/css" runat="server"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="registration" runat="server">
+        <asp:ScriptManager runat="server"/>
+        <div class="master-container">
+            <div class="sidebar">
+                <div class="logo-overlay">
+                    <img src="~/Images/logo-dark-mode.png" alt="LearnSphere Logo" runat="server" />
+                </div>
+                <div class="sidebar-image-container">
+                    <img src="~/Images/learning.png" alt="Learning" class="sidebar-img" runat="server"/>
+                </div>
+            </div>
+            <main class="content-area">
+                <div class="form-container">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </main>
+        </div>
+    </form>
+</body>
+</html>

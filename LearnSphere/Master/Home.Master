@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.Master.cs" Inherits="LearnSphere.Master.HomeMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <link href="~/CSS/Master/Home.css" rel="stylesheet" type="text/css" runat="server"/>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="home" runat="server">
+        <asp:ScriptManager runat="server"/>
+        <div class="master-container">
+
+            <div class="header">
+                <asp:LinkButton OnClick="lblResources_Click" ID="lblResources" runat="server" Text="Resources" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblForums_Click" ID="lblForums" runat="server" Text="Forums" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblAssessments_Click" ID="lblAssessments" runat="server" Text="Assessments" CssClass="header-component" />
+                <asp:LinkButton OnClick="lblApplications_Click" ID="lblApplication" runat="server" Text="Applications" CssClass="header-component" />
+                <asp:ImageButton OnClick="btnProfile_Click" ID="btnProfile" runat="server" ImageUrl="~/Images/profile.png" CssClass="header-profile-icon" />
+            </div>
+
+            <div id="searchContainer" class="search-container" runat="server">
+                <div class="search-bar-wrapper">
+                    <img src="~/Images/search.png" runat="server" class="search-icon" />
+                    <asp:TextBox
+                        ID="txtSearch"
+                        runat="server"
+                        CssClass="search-bar"/>
+                </div>
+
+                <asp:Button
+                    ID="btnSearch"
+                    runat="server"
+                    Text="Search"
+                    OnClick="btnSearch_Click"
+                    CssClass="search-button" />
+            </div>
+
+            <div class="action-container">
+
+                <div id="filterDropdown" class="dropdown-wrapper" runat="server">
+
+                    <asp:LinkButton ID="lnkFilter" runat="server" CssClass="action-group" OnCommand="FilterPanel_Toggle">
+                        <img src="~/Images/filter.png"
+                            runat="server"
+                            class="action-group-component"/>
+                        <asp:ContentPlaceHolder
+                            ID="plcSelectedFilterRepeater"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                        <asp:Label ID="lblFilter" runat="server" Text="None" />
+                        <img src="~/Images/dropdown.png"
+                            runat="server"
+                            class="action-group-component"/>
+                    </asp:LinkButton>
+
+                    <asp:Panel ID="pnlFilter" runat="server" CssClass="dropdown-panel">
+                        <asp:ContentPlaceHolder
+                            ID="DomainFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder
+                            ID="CategoryFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder
+                            ID="MineFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+
+                        <asp:ContentPlaceHolder
+                            ID="ApplicationStatusFiltersColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>   
+                    
+                </div>
+
+                <div id="sortDropdown" class="dropdown-wrapper" runat="server">
+                    <asp:LinkButton ID="lnkSort" runat="server" CssClass="action-group" OnCommand="SortPanel_Toggle">
+                        <img src="~/Images/sort.png"
+                            runat="server"
+                            class="action-group-component"/>
+                        <asp:Label ID="lblSort" runat="server" Text="None" />
+                        <img src="~/Images/dropdown.png"
+                            runat="server"
+                            class="action-group-component"/>
+                    </asp:LinkButton>
+              
+                    <asp:Panel ID="pnlSort" runat="server" CssClass="dropdown-panel">
+                        <asp:ContentPlaceHolder
+                            ID="SortsColumnPlaceholder"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:Panel>
+                </div>
+
+                <asp:ContentPlaceHolder 
+                    ID="ActionGroupPlaceholder" 
+                    runat="server"/>
+            </div>
+
+            <div class="content-container">
+                <asp:ContentPlaceHolder ID="BoxesPlaceholder" runat="server" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>
