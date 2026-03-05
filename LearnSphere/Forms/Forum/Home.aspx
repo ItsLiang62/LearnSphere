@@ -64,10 +64,14 @@
 </asp:Content>
 
 <asp:Content ID="CreateForum" ContentPlaceHolderID="ActionGroupPlaceholder" runat="server">
-    <asp:LinkButton ID="lnkCreateForum" runat="server" CssClass="rightmost-action-group">
-        <img src="~/Images/add.png" runat="server" class="action-group-component"/>
-        <asp:Label ID=lblCreateForum runat="server" Text="Create Forum"/>
-    </asp:LinkButton>
+    <asp:LinkButton 
+    ID="lnkCreateForum" 
+    runat="server" 
+    CssClass="rightmost-action-group"
+    PostBackUrl="~/Forms/Forum/CreateForum.aspx">
+    <img src="~/Images/add.png" runat="server" class="action-group-component"/>
+    <asp:Label ID="lblCreateForum" runat="server" Text="Create Forum"/>
+</asp:LinkButton>
 </asp:Content>
 
 <asp:Content ID="Forums" ContentPlaceHolderID="BoxesPlaceholder" runat="server">

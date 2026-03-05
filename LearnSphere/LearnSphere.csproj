@@ -194,12 +194,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Application\Certification.css" />
+    <Content Include="CSS\Forum\forum-create.css" />
+    <Content Include="CSS\Forum\forum-details.css" />
     <Content Include="CSS\Master\Registration.css" />
     <Content Include="CSS\Master\Home.css" />
     <Content Include="CSS\Profile\Profile.css" />
     <Content Include="Forms\Application\Home.aspx" />
     <Content Include="Forms\Application\Certification.aspx" />
     <Content Include="Forms\Assessment\Home.aspx" />
+    <Content Include="Forms\Forum\CreateForum.aspx" />
+    <Content Include="Forms\Forum\ForumDetails.aspx" />
     <Content Include="Forms\Forum\Home.aspx" />
     <Content Include="Forms\Profile\Profile.aspx" />
     <Content Include="Forms\Registration\Registration.aspx" />
@@ -231,6 +235,20 @@
     </Compile>
     <Compile Include="Forms\Assessment\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forum\CreateForum.aspx.cs">
+      <DependentUpon>CreateForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Forum\CreateForum.aspx.designer.cs">
+      <DependentUpon>CreateForum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forum\ForumDetails.aspx.cs">
+      <DependentUpon>ForumDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Forum\ForumDetails.aspx.designer.cs">
+      <DependentUpon>ForumDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Forum\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

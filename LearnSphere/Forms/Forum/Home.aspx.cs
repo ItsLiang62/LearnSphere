@@ -168,7 +168,8 @@ namespace LearnSphere.Forms.Forum
 
         protected void Box_Command(object sender, CommandEventArgs e)
         {
-
+            int forumId = Convert.ToInt32(e.CommandArgument);
+            Response.Redirect("~/Forms/Forum/ForumDetails.aspx?id=" + forumId);
         }
     }
 }
