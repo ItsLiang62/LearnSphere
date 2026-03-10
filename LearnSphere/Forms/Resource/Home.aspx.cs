@@ -49,7 +49,7 @@ namespace LearnSphere.Forms.Resource
                 if (txt != null)
                     txt.Attributes["placeholder"] = "Search by Title / Author";
 
-                string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear AS Year
+                string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear
                                      FROM LearningResource";
 
                 DataTable resources = DbHelper.ExecuteQuery(resourcesSql, null);
