@@ -199,6 +199,9 @@
     <Content Include="CSS\Master\Registration.css" />
     <Content Include="CSS\Master\Home.css" />
     <Content Include="CSS\Profile\Profile.css" />
+    <Content Include="CSS\Resource\resource-create.css" />
+    <Content Include="CSS\Resource\resource-details.css" />
+    <Content Include="CSS\Resource\resource-manage.css" />
     <Content Include="Forms\Application\Home.aspx" />
     <Content Include="Forms\Application\Certification.aspx" />
     <Content Include="Forms\Assessment\Home.aspx" />
@@ -210,10 +213,14 @@
     <Content Include="Forms\Registration\EduApplc.aspx" />
     <Content Include="Forms\Registration\Login.aspx" />
     <Content Include="Forms\Resource\Home.aspx" />
+    <Content Include="Forms\Resource\CreateResource.aspx" />
+    <Content Include="Forms\Resource\ResourceDetails.aspx" />
+    <Content Include="Forms\Resource\ManageResource.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ResourceDAL.cs" />
     <Compile Include="DAL\DbHelper.cs" />
     <Compile Include="Forms\Application\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -291,6 +298,27 @@
     </Compile>
     <Compile Include="Forms\Resource\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Resource\CreateResource.aspx.cs">
+      <DependentUpon>CreateResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Resource\CreateResource.aspx.designer.cs">
+      <DependentUpon>CreateResource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Resource\ResourceDetails.aspx.cs">
+      <DependentUpon>ResourceDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Resource\ResourceDetails.aspx.designer.cs">
+      <DependentUpon>ResourceDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Resource\ManageResource.aspx.cs">
+      <DependentUpon>ManageResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Resource\ManageResource.aspx.designer.cs">
+      <DependentUpon>ManageResource.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

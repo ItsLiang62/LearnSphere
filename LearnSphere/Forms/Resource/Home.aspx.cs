@@ -166,7 +166,13 @@ namespace LearnSphere.Forms.Resource
 
         protected void Box_Command(object sender, CommandEventArgs e)
         {
-            
+            int resourceId = Convert.ToInt32(e.CommandArgument);
+            Response.Redirect("~/Forms/Resource/ResourceDetails.aspx?id=" + resourceId);
+        }
+
+        protected void lnkShareResource_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Resource/CreateResource.aspx");
         }
     }
 }
