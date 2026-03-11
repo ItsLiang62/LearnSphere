@@ -32,6 +32,7 @@ namespace LearnSphere.Forms.Application
             ((HomeMasterPage)this.Master).SelectedFilters = value;
             colApplicationStatusFilters.Visible = false;
             ((HomeMasterPage)this.Master).ConditionallyCloseFilterPanel();
+            BindBoxes();
         }
 
         protected void Box_Command(object sender, CommandEventArgs e)
@@ -42,17 +43,30 @@ namespace LearnSphere.Forms.Application
 
         protected void BindBoxes()
         {
-            string appsSql = @"SELECT ID AS EducatorApplicationID,
-                               DomainName,
-                               Username,
-                               Email,
-                               CASE
-                               WHEN Completed = 0 THEN 'Pending'
-                               WHEN Completed = 1 THEN 'Completed'
-                               END AS Status
-                               FROM EducatorApplication";
+            string selectedFilter = ((HomeMasterPage)this.Master).SelectedFilters;
 
-            DataTable apps = DbHelper.ExecuteQuery(appsSql, null);
+            string appsSql = @"SELECT ID AS EducatorApplicationID,
+                       DomainName,
+                       Username,
+                       Email,
+                       CASE
+                       WHEN Completed = 0 THEN 'Pending'
+                       WHEN Completed = 1 THEN 'Completed'
+                       END AS Status
+                       FROM EducatorApplication";
+
+            var p = new Dictionary<string, object>();
+
+            if (selectedFilter == "Pending")
+            {
+                appsSql += " WHERE Completed = 0";
+            }
+            else if (selectedFilter == "Completed")
+            {
+                appsSql += " WHERE Completed = 1";
+            }
+
+            DataTable apps = DbHelper.ExecuteQuery(appsSql, p);
 
             BoxRepeater.DataSource = apps;
             BoxRepeater.DataBind();

@@ -72,9 +72,9 @@ namespace LearnSphere.Forms.Assessment
                 // Retrieve papers from database
                 string papersSql = @"SELECT p.ID, p.Title, a.Username, e.DomainName, t.TagName
                                     FROM Paper p
-                                    LEFT JOIN Educator e ON p.EducatorID = e.ID
-                                    LEFT JOIN PaperTag t ON p.ID = t.PaperID
-                                    LEFT JOIN Account a ON e.AccountID = a.ID";
+                                    LEFT JOIN Account a ON p.AccountID = a.ID
+                                    LEFT JOIN Educator e ON a.ID = e.AccountID
+                                    LEFT JOIN PaperTag t ON p.ID = t.PaperID";
                 DataTable papers = DbHelper.ExecuteQuery(papersSql, null);
 
                 // Load papers to boxes
@@ -135,9 +135,9 @@ namespace LearnSphere.Forms.Assessment
         {
             string papersSql = @"SELECT p.ID, p.Title, a.Username, e.DomainName, t.TagName
                                 FROM Paper p
-                                LEFT JOIN Educator e ON p.EducatorID = e.ID
+                                LEFT JOIN Account a ON p.AccountID = a.ID
+                                LEFT JOIN Educator e ON a.ID = e.AccountID
                                 LEFT JOIN PaperTag t ON p.ID = t.PaperID
-                                LEFT JOIN Account a ON e.AccountID = a.ID
                                 WHERE 
                                 (@domainName = 'None' OR e.DomainName = @domainName)
                                 AND (@eduAccId = -1 OR a.ID = @eduAccId)
@@ -177,6 +177,8 @@ namespace LearnSphere.Forms.Assessment
         protected void Box_Command(object sender, CommandEventArgs e)
         {
             int paperID = Convert.ToInt32(e.CommandArgument);
+            Session["PaperID"] = paperID;
+            Response.Redirect("~/Forms/Assessment/ViewPaper.aspx");
         }
 
         protected void DomainFilter_Command(object sender, CommandEventArgs e)
@@ -204,6 +206,11 @@ namespace LearnSphere.Forms.Assessment
             string value = e.CommandArgument.ToString();
             ((HomeMasterPage)this.Master).SortText = value;
             ((HomeMasterPage)this.Master).CloseSortPanel();
+        }
+
+        protected void btnCreatePaper_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Assessment/CreatePaper.aspx");
         }
     }
 }
