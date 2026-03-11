@@ -49,7 +49,7 @@ namespace LearnSphere.Forms.Resource
                 if (txt != null)
                     txt.Attributes["placeholder"] = "Search by Title / Author";
 
-                string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear AS Year
+                string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear
                                      FROM LearningResource";
 
                 DataTable resources = DbHelper.ExecuteQuery(resourcesSql, null);
@@ -84,7 +84,7 @@ namespace LearnSphere.Forms.Resource
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear AS Year
+            string resourcesSql = @"SELECT ID AS ResourceID, Title, Author, Category, PublicationYear
                                      FROM LearningResource
                                      WHERE 
                                      (@domainName = 'None' OR DomainName = @domainName)
@@ -100,7 +100,7 @@ namespace LearnSphere.Forms.Resource
                                      CASE WHEN @sortBy = 'Author (A-Z)'
                                      THEN Author END ASC,
                                      CASE WHEN @sortBy = 'Most Recent'
-                                     THEN Year END DESC,
+                                     THEN PublicationYear END DESC,
                                      CASE WHEN @sortBy = 'None' 
                                      THEN ID END ASC;";
 
@@ -117,7 +117,7 @@ namespace LearnSphere.Forms.Resource
                 {
                     { "@domainName", SelectedFilters[0] },
                     { "@category", SelectedFilters[1] },
-                    { "@sharer", sharerId },
+                    { "@sharerId", sharerId },
                     { "@sortBy", SelectedSort },
                     { "@search", search }
                 });
@@ -166,7 +166,13 @@ namespace LearnSphere.Forms.Resource
 
         protected void Box_Command(object sender, CommandEventArgs e)
         {
-            
+            int resourceId = Convert.ToInt32(e.CommandArgument);
+            Response.Redirect("~/Forms/Resource/ResourceDetails.aspx?id=" + resourceId);
+        }
+
+        protected void lnkShareResource_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Forms/Resource/CreateResource.aspx");
         }
     }
 }

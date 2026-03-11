@@ -112,7 +112,7 @@
 </asp:Content>
 
 <asp:Content ID="ShareResource" ContentPlaceHolderID="ActionGroupPlaceholder" runat="server">
-    <asp:LinkButton ID="lnkShareResource" runat="server" CssClass="rightmost-action-group">
+    <asp:LinkButton ID="lnkShareResource" runat="server" CssClass="rightmost-action-group" OnClick="lnkShareResource_Click">
         <img src="~/Images/add.png" runat="server" class="action-group-component"/>
         <asp:Label ID=lblShareResource runat="server" Text="Share Resource"/>
     </asp:LinkButton>
@@ -129,7 +129,7 @@
                     <label class="box-primary-text">
                         <%# Eval("Title") %>
                     </label>
-                    <span class="tag rightmost-tag"><%# Eval("Year") %></span>
+                    <span class="tag rightmost-tag"><%# Eval("PublicationYear") %></span>
                 </div>
                 <label class="box-secondary-text">
                     <%# Eval("Author") %>

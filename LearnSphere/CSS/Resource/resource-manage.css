@@ -1,0 +1,33 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+}
+
+.manage-container {
+    width: 95%;
+    margin: 40px auto;
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .grid th, .grid td {
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .grid th {
+        background: #efefef;
+    }
+
+.message {
+    display: block;
+    margin-top: 16px;
+    color: green;
+}
