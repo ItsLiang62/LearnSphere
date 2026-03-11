@@ -12,6 +12,12 @@
     <asp:Panel ID="colApplicationStatusFilters" runat="server" CssClass="dropdown-column">
         <asp:LinkButton 
             CssClass="dropdown-item"
+            Text="None"
+            CommandArgument="None"
+            OnCommand="ApplicationStatusFilter_Command"
+            runat="server"/>
+        <asp:LinkButton 
+            CssClass="dropdown-item"
             Text="Pending"
             CommandArgument="Pending"
             OnCommand="ApplicationStatusFilter_Command"

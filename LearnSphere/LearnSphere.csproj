@@ -194,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Application\Certification.css" />
+    <Content Include="CSS\Assessment\CreatePaper.css" />
+    <Content Include="CSS\Assessment\ViewAttempt.css" />
+    <Content Include="CSS\Assessment\ViewPaper.css" />
     <Content Include="CSS\Forum\forum-create.css" />
     <Content Include="CSS\Forum\forum-details.css" />
     <Content Include="CSS\Master\Registration.css" />
@@ -205,6 +208,9 @@
     <Content Include="Forms\Application\Home.aspx" />
     <Content Include="Forms\Application\Certification.aspx" />
     <Content Include="Forms\Assessment\Home.aspx" />
+    <Content Include="Forms\Assessment\CreatePaper.aspx" />
+    <Content Include="Forms\Assessment\ViewPaper.aspx" />
+    <Content Include="Forms\Assessment\ViewAttempt.aspx" />
     <Content Include="Forms\Forum\CreateForum.aspx" />
     <Content Include="Forms\Forum\ForumDetails.aspx" />
     <Content Include="Forms\Forum\Home.aspx" />
@@ -242,6 +248,27 @@
     </Compile>
     <Compile Include="Forms\Assessment\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Assessment\CreatePaper.aspx.cs">
+      <DependentUpon>CreatePaper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Assessment\CreatePaper.aspx.designer.cs">
+      <DependentUpon>CreatePaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Assessment\ViewPaper.aspx.cs">
+      <DependentUpon>ViewPaper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Assessment\ViewPaper.aspx.designer.cs">
+      <DependentUpon>ViewPaper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Assessment\ViewAttempt.aspx.cs">
+      <DependentUpon>ViewAttempt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Assessment\ViewAttempt.aspx.designer.cs">
+      <DependentUpon>ViewAttempt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Forum\CreateForum.aspx.cs">
       <DependentUpon>CreateForum.aspx</DependentUpon>

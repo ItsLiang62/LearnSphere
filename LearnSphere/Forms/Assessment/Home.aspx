@@ -67,7 +67,7 @@
 </asp:Content>
 
 <asp:Content ID="CreatePaper" ContentPlaceHolderID="ActionGroupPlaceholder" runat="server">
-    <asp:LinkButton ID="lnkCreatePaper" runat="server" CssClass="rightmost-action-group">
+    <asp:LinkButton ID="lnkCreatePaper" runat="server" CssClass="rightmost-action-group" OnClick="btnCreatePaper_Click">
         <img src="~/Images/add.png" runat="server" class="action-group-component"/>
         <asp:Label ID=lblCreatePaper runat="server" Text="Create Paper"/>
     </asp:LinkButton>
