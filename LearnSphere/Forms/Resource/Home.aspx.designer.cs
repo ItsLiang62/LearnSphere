@@ -78,6 +78,15 @@ namespace LearnSphere.Forms.Resource
         protected global::System.Web.UI.WebControls.LinkButton lnkBook;
 
         /// <summary>
+        /// lnkOther control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkOther;
+
+        /// <summary>
         /// lnkCategoryNone control.
         /// </summary>
         /// <remarks>
@@ -175,6 +184,24 @@ namespace LearnSphere.Forms.Resource
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblShareResource;
+
+        /// <summary>
+        /// lnkManageResource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkManageResource;
+
+        /// <summary>
+        /// lblManageResource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblManageResource;
 
         /// <summary>
         /// BoxRepeater control.
